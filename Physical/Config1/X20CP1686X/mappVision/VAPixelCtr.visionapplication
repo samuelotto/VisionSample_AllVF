@@ -1,0 +1,589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="VAPixelCtr" Type="visionapplication">
+    <Group ID="ImgProcessingInputs">
+      <Group ID="Input[0]">
+        <Property ID="ChannelID" Value="PixelCounter_Enable" />
+      </Group>
+      <Group ID="Input[1]">
+        <Property ID="ChannelID" Value="PixelCounter_EnhancedPixelCtrlInfo" />
+      </Group>
+    </Group>
+    <Group ID="VisionFunctionSet">
+      <Group ID="VisionProgramSettings">
+        <Property ID="CompilerOption" Value="0" />
+      </Group>
+      <Group ID="VfInstance[1]">
+        <Property ID="VfName" Value="VfPixelCounter_1" />
+        <Property ID="VfExecutionNr" Value="1" />
+        <Selector ID="VfType" Value="vf-pixels">
+          <Group ID="VfDataSet">
+            <Property ID="Models" Value="" />
+            <Property ID="WidgetModels" Value="" />
+            <Property ID="ROI" Value="" />
+          </Group>
+          <Group ID="VfWirings">
+            <Group ID="Image">
+              <Selector ID="SourceType" Value="ImageAcquisition">
+                <Property ID="IaParameter" Value="Image01" />
+              </Selector>
+            </Group>
+            <Group ID="Enable">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="PixelCounter_Enable" />
+              </Selector>
+            </Group>
+            <Group ID="NumSearchMax">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="EnhancedPixelCounterInformation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="PixelCounter_EnhancedPixelCtrlInfo" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIOrientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIRotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIRotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+          </Group>
+          <Group ID="VfOutputs">
+            <Group ID="NumResults">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="FunctionProcessingTime">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="ModelNumber">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="NumPixels">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="MinGray">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="MaxGray">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="MeanGray">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="DeviationGray">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="MedianGray">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="ModelArea">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="NumConnectedComponents">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+    </Group>
+    <Group ID="ImgProcessingOutputs">
+      <Group ID="Output[0]">
+        <Property ID="ChannelID" Value="PixelCounter_NumResults" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="NumResults" />
+        </Group>
+      </Group>
+      <Group ID="Output[1]">
+        <Property ID="ChannelID" Value="PixelCounter_FuncProcTime" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="FunctionProcessingTime" />
+        </Group>
+      </Group>
+      <Group ID="Output[2]">
+        <Property ID="ChannelID" Value="PixelCounter_ModelNumber" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="ModelNumber" />
+        </Group>
+      </Group>
+      <Group ID="Output[3]">
+        <Property ID="ChannelID" Value="PixelCounter_NumPixels" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="NumPixels" />
+        </Group>
+      </Group>
+      <Group ID="Output[4]">
+        <Property ID="ChannelID" Value="PixelCounter_MinGray" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="MinGray" />
+        </Group>
+      </Group>
+      <Group ID="Output[5]">
+        <Property ID="ChannelID" Value="PixelCounter_MaxGray" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="MaxGray" />
+        </Group>
+      </Group>
+      <Group ID="Output[6]">
+        <Property ID="ChannelID" Value="PixelCounter_MeanGray" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="MeanGray" />
+        </Group>
+      </Group>
+      <Group ID="Output[7]">
+        <Property ID="ChannelID" Value="PixelCounter_DeviationGray" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="DeviationGray" />
+        </Group>
+      </Group>
+      <Group ID="Output[8]">
+        <Property ID="ChannelID" Value="PixelCounter_MedianGray" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="MedianGray" />
+        </Group>
+      </Group>
+      <Group ID="Output[9]">
+        <Property ID="ChannelID" Value="PixelCounter_ModelArea" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="ModelArea" />
+        </Group>
+      </Group>
+      <Group ID="Output[10]">
+        <Property ID="ChannelID" Value="PixelCounter_NumConnectedComponents" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="NumConnectedComponents" />
+        </Group>
+      </Group>
+      <Group ID="Output[11]">
+        <Property ID="ChannelID" Value="PixelCounter_PositionX" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="PositionX" />
+        </Group>
+      </Group>
+      <Group ID="Output[12]">
+        <Property ID="ChannelID" Value="PixelCounter_PositionY" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfPixelCounter_1" />
+          <Property ID="VfOutputParameter" Value="PositionY" />
+        </Group>
+      </Group>
+    </Group>
+    <Group ID="ViewModelDataSet">
+      <Group ID="ViewModelData[1]">
+        <Property ID="ObjectID" Value="ImageAcquisition" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="269" />
+            <Property ID="Y" Value="92" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[2]">
+        <Property ID="ObjectID" Value="PixelCounter_Enable" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="311" />
+            <Property ID="Y" Value="234" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[3]">
+        <Property ID="ObjectID" Value="PixelCounter_EnhancedPixelCtrlInfo" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="310" />
+            <Property ID="Y" Value="264" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[4]">
+        <Property ID="ObjectID" Value="VfPixelCounter_1" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="546" />
+            <Property ID="Y" Value="324" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[5]">
+        <Property ID="ObjectID" Value="PixelCounter_NumResults" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="790" />
+            <Property ID="Y" Value="234" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[6]">
+        <Property ID="ObjectID" Value="PixelCounter_FuncProcTime" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="789" />
+            <Property ID="Y" Value="248" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[7]">
+        <Property ID="ObjectID" Value="PixelCounter_ModelNumber" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="790" />
+            <Property ID="Y" Value="278" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[8]">
+        <Property ID="ObjectID" Value="PixelCounter_NumPixels" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="294" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[9]">
+        <Property ID="ObjectID" Value="PixelCounter_MinGray" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="309" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[10]">
+        <Property ID="ObjectID" Value="PixelCounter_MaxGray" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="324" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[11]">
+        <Property ID="ObjectID" Value="PixelCounter_MeanGray" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="339" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[12]">
+        <Property ID="ObjectID" Value="PixelCounter_DeviationGray" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="354" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[13]">
+        <Property ID="ObjectID" Value="PixelCounter_MedianGray" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="369" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[14]">
+        <Property ID="ObjectID" Value="PixelCounter_ModelArea" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="384" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[15]">
+        <Property ID="ObjectID" Value="PixelCounter_NumConnectedComponents" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="399" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[16]">
+        <Property ID="ObjectID" Value="PixelCounter_PositionX" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="414" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[17]">
+        <Property ID="ObjectID" Value="PixelCounter_PositionY" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="791" />
+            <Property ID="Y" Value="429" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[18]">
+        <Property ID="ObjectID" Value="VP.VP.PixelCounter_Enable.VF.VfPixelCounter_1.Enable" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[19]">
+        <Property ID="ObjectID" Value="VP.VP.PixelCounter_EnhancedPixelCtrlInfo.VF.VfPixelCounter_1.EnhancedPixelCounterInformation" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[20]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.NumResults.VP.VP.PixelCounter_NumResults" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[21]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.FunctionProcessingTime.VP.VP.PixelCounter_FuncProcTime" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[22]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.ModelNumber.VP.VP.PixelCounter_ModelNumber" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[23]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.NumPixels.VP.VP.PixelCounter_NumPixels" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[24]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.MinGray.VP.VP.PixelCounter_MinGray" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[25]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.MaxGray.VP.VP.PixelCounter_MaxGray" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[26]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.MeanGray.VP.VP.PixelCounter_MeanGray" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[27]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.DeviationGray.VP.VP.PixelCounter_DeviationGray" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[28]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.MedianGray.VP.VP.PixelCounter_MedianGray" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[29]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.ModelArea.VP.VP.PixelCounter_ModelArea" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[30]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.NumConnectedComponents.VP.VP.PixelCounter_NumConnectedComponents" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[31]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.PositionX.VP.VP.PixelCounter_PositionX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[32]">
+        <Property ID="ObjectID" Value="VF.VfPixelCounter_1.PositionY.VP.VP.PixelCounter_PositionY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

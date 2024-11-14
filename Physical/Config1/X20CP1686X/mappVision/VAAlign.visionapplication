@@ -1,0 +1,993 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="VAAlign" Type="visionapplication">
+    <Group ID="ImgProcessingInputs">
+      <Group ID="Input[0]">
+        <Property ID="ChannelID" Value="CodeReader_Enable" />
+      </Group>
+      <Group ID="Input[1]">
+        <Property ID="ChannelID" Value="CodeReader_SymbolType" />
+      </Group>
+      <Group ID="Input[2]">
+        <Property ID="ChannelID" Value="CodeReader_Alignment" />
+      </Group>
+      <Group ID="Input[3]">
+        <Property ID="ChannelID" Value="DeepOCR_Enable" />
+      </Group>
+      <Group ID="Input[4]">
+        <Property ID="ChannelID" Value="DeepOCR_MinConfidenceLevel" />
+      </Group>
+      <Group ID="Input[5]">
+        <Property ID="ChannelID" Value="Match_Enable" />
+      </Group>
+      <Group ID="Input[6]">
+        <Property ID="ChannelID" Value="Match_NumSearchMax" />
+      </Group>
+    </Group>
+    <Group ID="VisionFunctionSet">
+      <Group ID="VisionProgramSettings">
+        <Property ID="CompilerOption" Value="0" />
+      </Group>
+      <Group ID="VfInstance[1]">
+        <Property ID="VfName" Value="VfCodeReader_1" />
+        <Property ID="VfExecutionNr" Value="1" />
+        <Selector ID="VfType" Value="vf-datacode">
+          <Group ID="VfDataSet">
+            <Property ID="Models" Value="" />
+            <Property ID="ROI" Value="" />
+          </Group>
+          <Group ID="VfWirings">
+            <Group ID="Image">
+              <Selector ID="SourceType" Value="ImageAcquisition">
+                <Property ID="IaParameter" Value="Image01" />
+              </Selector>
+            </Group>
+            <Group ID="Enable">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="CodeReader_Enable" />
+              </Selector>
+            </Group>
+            <Group ID="NumSearchMax">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="Timeout">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="ParameterMode">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="ParameterOptimization">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="SymbolType">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="CodeReader_SymbolType" />
+              </Selector>
+            </Group>
+            <Group ID="EnableRobustness">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="CodeGrading">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="Alignment">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="CodeReader_Alignment" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIOrientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIRotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIRotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+          </Group>
+          <Group ID="VfOutputs">
+            <Group ID="NumResults">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="FunctionProcessingTime">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="DecodedData">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="SymbolType">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="GradingValue">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="EnhancedGradingInformation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Orientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="RotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="RotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="VfInstance[2]">
+        <Property ID="VfName" Value="VfDeepOCR_1" />
+        <Property ID="VfExecutionNr" Value="2" />
+        <Selector ID="VfType" Value="vf-dl-deepocr">
+          <Group ID="VfDataSet">
+            <Property ID="Models" Value="" />
+            <Property ID="ROI" Value="" />
+          </Group>
+          <Group ID="VfWirings">
+            <Group ID="Image">
+              <Selector ID="SourceType" Value="ImageAcquisition">
+                <Property ID="IaParameter" Value="Image01" />
+              </Selector>
+            </Group>
+            <Group ID="Enable">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="DeepOCR_Enable" />
+              </Selector>
+            </Group>
+            <Group ID="NumSearchMax">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="MinConfidenceLevel">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="DeepOCR_MinConfidenceLevel" />
+              </Selector>
+            </Group>
+            <Group ID="Timeout">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="PositionX" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="PositionY" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIOrientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="Orientation" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIRotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="RotCenterX" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIRotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="RotCenterY" />
+              </Selector>
+            </Group>
+          </Group>
+          <Group ID="VfOutputs">
+            <Group ID="NumResults">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="FunctionProcessingTime">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="OCRData">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="MinConfidenceInROI">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="NumberDiscardedCharacters">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="ConfidenceLevelArray">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Orientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="VfInstance[3]">
+        <Property ID="VfName" Value="VfMatching_1" />
+        <Property ID="VfExecutionNr" Value="3" />
+        <Selector ID="VfType" Value="vf-matching">
+          <Group ID="VfDataSet">
+            <Property ID="Models" Value="" />
+            <Property ID="WidgetModels" Value="" />
+            <Property ID="ROI" Value="" />
+          </Group>
+          <Group ID="VfWirings">
+            <Group ID="Image">
+              <Selector ID="SourceType" Value="ImageAcquisition">
+                <Property ID="IaParameter" Value="Image01" />
+              </Selector>
+            </Group>
+            <Group ID="Enable">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="Match_Enable" />
+              </Selector>
+            </Group>
+            <Group ID="NumSearchMax">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="Match_NumSearchMax" />
+              </Selector>
+            </Group>
+            <Group ID="Timeout">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="MinScore">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="MaxOverlap">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="Alignment">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="PositionX" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="PositionY" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIOrientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="Orientation" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIRotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="RotCenterX" />
+              </Selector>
+            </Group>
+            <Group ID="OffsetROIRotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="VisionFunction">
+                <Property ID="SourceVfName" Value="VfCodeReader_1" />
+                <Property ID="VfParameter" Value="RotCenterY" />
+              </Selector>
+            </Group>
+          </Group>
+          <Group ID="VfOutputs">
+            <Group ID="NumResults">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="FunctionProcessingTime">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="ModelNumber">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Score">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Scale">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Orientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="RotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="RotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+    </Group>
+    <Group ID="ImgProcessingOutputs">
+      <Group ID="Output[0]">
+        <Property ID="ChannelID" Value="CodeReader_NumResults" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfCodeReader_1" />
+          <Property ID="VfOutputParameter" Value="NumResults" />
+        </Group>
+      </Group>
+      <Group ID="Output[1]">
+        <Property ID="ChannelID" Value="CodeReader_DecodedData" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfCodeReader_1" />
+          <Property ID="VfOutputParameter" Value="DecodedData" />
+        </Group>
+      </Group>
+      <Group ID="Output[2]">
+        <Property ID="ChannelID" Value="CodeReader_ReadSymbolType" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfCodeReader_1" />
+          <Property ID="VfOutputParameter" Value="SymbolType" />
+        </Group>
+      </Group>
+      <Group ID="Output[3]">
+        <Property ID="ChannelID" Value="DeepOCR_NumResults" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfDeepOCR_1" />
+          <Property ID="VfOutputParameter" Value="NumResults" />
+        </Group>
+      </Group>
+      <Group ID="Output[4]">
+        <Property ID="ChannelID" Value="DeepOCR_OCRData" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfDeepOCR_1" />
+          <Property ID="VfOutputParameter" Value="OCRData" />
+        </Group>
+      </Group>
+      <Group ID="Output[5]">
+        <Property ID="ChannelID" Value="Match_NumResults" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfMatching_1" />
+          <Property ID="VfOutputParameter" Value="NumResults" />
+        </Group>
+      </Group>
+      <Group ID="Output[6]">
+        <Property ID="ChannelID" Value="Match_ModelNumber" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfMatching_1" />
+          <Property ID="VfOutputParameter" Value="ModelNumber" />
+        </Group>
+      </Group>
+      <Group ID="Output[7]">
+        <Property ID="ChannelID" Value="Match_Score" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfMatching_1" />
+          <Property ID="VfOutputParameter" Value="Score" />
+        </Group>
+      </Group>
+      <Group ID="Output[8]">
+        <Property ID="ChannelID" Value="Match_Scale" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfMatching_1" />
+          <Property ID="VfOutputParameter" Value="Scale" />
+        </Group>
+      </Group>
+    </Group>
+    <Group ID="ViewModelDataSet">
+      <Group ID="ViewModelData[1]">
+        <Property ID="ObjectID" Value="ImageAcquisition" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="269" />
+            <Property ID="Y" Value="92" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[2]">
+        <Property ID="ObjectID" Value="CodeReader_Enable" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="240" />
+            <Property ID="Y" Value="288" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[3]">
+        <Property ID="ObjectID" Value="CodeReader_SymbolType" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="238" />
+            <Property ID="Y" Value="363" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[4]">
+        <Property ID="ObjectID" Value="CodeReader_Alignment" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="238" />
+            <Property ID="Y" Value="407" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[5]">
+        <Property ID="ObjectID" Value="DeepOCR_Enable" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1178" />
+            <Property ID="Y" Value="333" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[6]">
+        <Property ID="ObjectID" Value="DeepOCR_MinConfidenceLevel" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1178" />
+            <Property ID="Y" Value="363" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[7]">
+        <Property ID="ObjectID" Value="Match_Enable" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1175" />
+            <Property ID="Y" Value="543" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[8]">
+        <Property ID="ObjectID" Value="Match_NumSearchMax" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1176" />
+            <Property ID="Y" Value="558" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[9]">
+        <Property ID="ObjectID" Value="VfCodeReader_1" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="479" />
+            <Property ID="Y" Value="377" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[10]">
+        <Property ID="ObjectID" Value="VfDeepOCR_1" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1415" />
+            <Property ID="Y" Value="392" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[11]">
+        <Property ID="ObjectID" Value="VfMatching_1" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1415" />
+            <Property ID="Y" Value="610" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[12]">
+        <Property ID="ObjectID" Value="CodeReader_NumResults" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="720" />
+            <Property ID="Y" Value="287" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[13]">
+        <Property ID="ObjectID" Value="CodeReader_DecodedData" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="719" />
+            <Property ID="Y" Value="333" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[14]">
+        <Property ID="ObjectID" Value="CodeReader_ReadSymbolType" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="718" />
+            <Property ID="Y" Value="348" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[15]">
+        <Property ID="ObjectID" Value="DeepOCR_NumResults" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1657" />
+            <Property ID="Y" Value="333" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[16]">
+        <Property ID="ObjectID" Value="DeepOCR_OCRData" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1656" />
+            <Property ID="Y" Value="377" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[17]">
+        <Property ID="ObjectID" Value="Match_NumResults" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1660" />
+            <Property ID="Y" Value="543" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[18]">
+        <Property ID="ObjectID" Value="Match_ModelNumber" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1660" />
+            <Property ID="Y" Value="587" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[19]">
+        <Property ID="ObjectID" Value="Match_Score" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1660" />
+            <Property ID="Y" Value="603" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[20]">
+        <Property ID="ObjectID" Value="Match_Scale" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="1660" />
+            <Property ID="Y" Value="618" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[21]">
+        <Property ID="ObjectID" Value="VP.VP.CodeReader_Enable.VF.VfCodeReader_1.Enable" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[22]">
+        <Property ID="ObjectID" Value="VP.VP.CodeReader_SymbolType.VF.VfCodeReader_1.SymbolType" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[23]">
+        <Property ID="ObjectID" Value="VP.VP.CodeReader_Alignment.VF.VfCodeReader_1.Alignment" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[24]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.NumResults.VP.VP.CodeReader_NumResults" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[25]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.DecodedData.VP.VP.CodeReader_DecodedData" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[26]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.SymbolType.VP.VP.CodeReader_ReadSymbolType" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[27]">
+        <Property ID="ObjectID" Value="VP.VP.DeepOCR_Enable.VF.VfDeepOCR_1.Enable" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[28]">
+        <Property ID="ObjectID" Value="VP.VP.DeepOCR_MinConfidenceLevel.VF.VfDeepOCR_1.MinConfidenceLevel" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[29]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.PositionX.VF.VfDeepOCR_1.OffsetROIX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[30]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.PositionY.VF.VfDeepOCR_1.OffsetROIY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[31]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.Orientation.VF.VfDeepOCR_1.OffsetROIOrientation" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[32]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.RotCenterX.VF.VfDeepOCR_1.OffsetROIRotCenterX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[33]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.RotCenterY.VF.VfDeepOCR_1.OffsetROIRotCenterY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[34]">
+        <Property ID="ObjectID" Value="VF.VfDeepOCR_1.NumResults.VP.VP.DeepOCR_NumResults" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[35]">
+        <Property ID="ObjectID" Value="VF.VfDeepOCR_1.OCRData.VP.VP.DeepOCR_OCRData" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[36]">
+        <Property ID="ObjectID" Value="VP.VP.Match_Enable.VF.VfMatching_1.Enable" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[37]">
+        <Property ID="ObjectID" Value="VP.VP.Match_NumSearchMax.VF.VfMatching_1.NumSearchMax" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[38]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.PositionX.VF.VfMatching_1.OffsetROIX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[39]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.PositionY.VF.VfMatching_1.OffsetROIY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[40]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.Orientation.VF.VfMatching_1.OffsetROIOrientation" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[41]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.RotCenterX.VF.VfMatching_1.OffsetROIRotCenterX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[42]">
+        <Property ID="ObjectID" Value="VF.VfCodeReader_1.RotCenterY.VF.VfMatching_1.OffsetROIRotCenterY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[43]">
+        <Property ID="ObjectID" Value="VF.VfMatching_1.NumResults.VP.VP.Match_NumResults" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[44]">
+        <Property ID="ObjectID" Value="VF.VfMatching_1.ModelNumber.VP.VP.Match_ModelNumber" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[45]">
+        <Property ID="ObjectID" Value="VF.VfMatching_1.Score.VP.VP.Match_Score" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[46]">
+        <Property ID="ObjectID" Value="VF.VfMatching_1.Scale.VP.VP.Match_Scale" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

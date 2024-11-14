@@ -1,0 +1,5 @@
+VAR
+	CmdTriggerImage : BOOL;
+	CmdShowImageMappView : BOOL;
+	CmdSaveFile : BOOL;
+END_VAR

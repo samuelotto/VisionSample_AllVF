@@ -1,0 +1,9 @@
+VAR
+	VisionCtrl : VisionCtrlType;
+	LightBarCtrl : LightCtrlType;
+	BacklightCtrl : LightCtrlType;
+	CompletedAcquisitionCntOld : USINT;
+	AcceptedAcquisitionCntOld : USINT;
+	ActNettime_SoC : DINT; (*Actual Nettime-TimeStamp, connected to PLK-Interface*)
+	RTInfo_0 : RTInfo;
+END_VAR

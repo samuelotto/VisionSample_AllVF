@@ -1,0 +1,966 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="VASubPBlob" Type="visionapplication">
+    <Group ID="ImgProcessingInputs">
+      <Group ID="Input[0]">
+        <Property ID="ChannelID" Value="SubpixlBlob_Enable" />
+      </Group>
+      <Group ID="Input[1]">
+        <Property ID="ChannelID" Value="SubpixelBlob_RegionFeatures" />
+      </Group>
+      <Group ID="Input[2]">
+        <Property ID="ChannelID" Value="SubpixelBlob_EnhancedBlobInfo" />
+      </Group>
+    </Group>
+    <Group ID="VisionFunctionSet">
+      <Group ID="VisionProgramSettings">
+        <Property ID="CompilerOption" Value="0" />
+      </Group>
+      <Group ID="VfInstance[1]">
+        <Property ID="VfName" Value="VfSubpixelBlob_1" />
+        <Property ID="VfExecutionNr" Value="1" />
+        <Selector ID="VfType" Value="vf-blob-subpixel">
+          <Group ID="VfDataSet">
+            <Property ID="Models" Value="" />
+            <Property ID="WidgetModels" Value="" />
+            <Property ID="ROI" Value="" />
+          </Group>
+          <Group ID="VfWirings">
+            <Group ID="Image">
+              <Selector ID="SourceType" Value="ImageAcquisition">
+                <Property ID="IaParameter" Value="Image01" />
+              </Selector>
+            </Group>
+            <Group ID="Enable">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="SubpixlBlob_Enable" />
+              </Selector>
+            </Group>
+            <Group ID="NumSearchMax">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="RegionFeatures">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="SubpixelBlob_RegionFeatures" />
+              </Selector>
+            </Group>
+            <Group ID="EnhancedBlobInformation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="SubpixelBlob_EnhancedBlobInfo" />
+              </Selector>
+            </Group>
+            <Group ID="Alignment">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIOrientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIRotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIRotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+          </Group>
+          <Group ID="VfOutputs">
+            <Group ID="NumResults">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="FunctionProcessingTime">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="ModelNumber">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="MeanGrayValue">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Clipped">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Area">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Length">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Width">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Xmin">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Xmax">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Ymin">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Ymax">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Circularity">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Rectangularity">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Anisometry">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="InnerCirclePositionX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="InnerCirclePositionY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="InnerCircleRadius">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Orientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="RotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="RotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+    </Group>
+    <Group ID="ImgProcessingOutputs">
+      <Group ID="Output[0]">
+        <Property ID="ChannelID" Value="SubPixelBlob_NumResults" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="NumResults" />
+        </Group>
+      </Group>
+      <Group ID="Output[1]">
+        <Property ID="ChannelID" Value="SubPixelBlob_FuncProcTime" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="FunctionProcessingTime" />
+        </Group>
+      </Group>
+      <Group ID="Output[2]">
+        <Property ID="ChannelID" Value="SubPixelBlob_ModelNumber" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="ModelNumber" />
+        </Group>
+      </Group>
+      <Group ID="Output[3]">
+        <Property ID="ChannelID" Value="SubPixelBlob_MeanGrayValue" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="MeanGrayValue" />
+        </Group>
+      </Group>
+      <Group ID="Output[4]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Clipped" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Clipped" />
+        </Group>
+      </Group>
+      <Group ID="Output[5]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Area" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Area" />
+        </Group>
+      </Group>
+      <Group ID="Output[6]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Length" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Length" />
+        </Group>
+      </Group>
+      <Group ID="Output[7]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Width" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Width" />
+        </Group>
+      </Group>
+      <Group ID="Output[8]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Xmin" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Xmin" />
+        </Group>
+      </Group>
+      <Group ID="Output[9]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Xmax" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Xmax" />
+        </Group>
+      </Group>
+      <Group ID="Output[10]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Ymin" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Ymin" />
+        </Group>
+      </Group>
+      <Group ID="Output[11]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Ymax" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Ymax" />
+        </Group>
+      </Group>
+      <Group ID="Output[12]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Circularity" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Circularity" />
+        </Group>
+      </Group>
+      <Group ID="Output[13]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Rectangularity" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Rectangularity" />
+        </Group>
+      </Group>
+      <Group ID="Output[14]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Anisometry" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Anisometry" />
+        </Group>
+      </Group>
+      <Group ID="Output[15]">
+        <Property ID="ChannelID" Value="SubPixelBlob_InnerCirclePositionX" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="InnerCirclePositionX" />
+        </Group>
+      </Group>
+      <Group ID="Output[16]">
+        <Property ID="ChannelID" Value="SubPixelBlob_InnerCirclePositionY" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="InnerCirclePositionY" />
+        </Group>
+      </Group>
+      <Group ID="Output[17]">
+        <Property ID="ChannelID" Value="SubPixelBlob_InnerCircleRadius" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="InnerCircleRadius" />
+        </Group>
+      </Group>
+      <Group ID="Output[18]">
+        <Property ID="ChannelID" Value="SubPixelBlob_PositionX" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="PositionX" />
+        </Group>
+      </Group>
+      <Group ID="Output[19]">
+        <Property ID="ChannelID" Value="SubPixelBlob_PositionY" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="PositionY" />
+        </Group>
+      </Group>
+      <Group ID="Output[20]">
+        <Property ID="ChannelID" Value="SubPixelBlob_Orientation" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="Orientation" />
+        </Group>
+      </Group>
+      <Group ID="Output[21]">
+        <Property ID="ChannelID" Value="SubPixelBlob_RotCenterX" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="RotCenterX" />
+        </Group>
+      </Group>
+      <Group ID="Output[22]">
+        <Property ID="ChannelID" Value="SubPixelBlob_RotCenterY" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfSubpixelBlob_1" />
+          <Property ID="VfOutputParameter" Value="RotCenterY" />
+        </Group>
+      </Group>
+    </Group>
+    <Group ID="ViewModelDataSet">
+      <Group ID="ViewModelData[1]">
+        <Property ID="ObjectID" Value="ImageAcquisition" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="269" />
+            <Property ID="Y" Value="92" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[2]">
+        <Property ID="ObjectID" Value="SubpixlBlob_Enable" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="319" />
+            <Property ID="Y" Value="235" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[3]">
+        <Property ID="ObjectID" Value="SubpixelBlob_RegionFeatures" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="319" />
+            <Property ID="Y" Value="265" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[4]">
+        <Property ID="ObjectID" Value="SubpixelBlob_EnhancedBlobInfo" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="318" />
+            <Property ID="Y" Value="280" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[5]">
+        <Property ID="ObjectID" Value="VfSubpixelBlob_1" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="554" />
+            <Property ID="Y" Value="400" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[6]">
+        <Property ID="ObjectID" Value="SubPixelBlob_NumResults" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="235" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[7]">
+        <Property ID="ObjectID" Value="SubPixelBlob_FuncProcTime" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="250" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[8]">
+        <Property ID="ObjectID" Value="SubPixelBlob_ModelNumber" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="280" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[9]">
+        <Property ID="ObjectID" Value="SubPixelBlob_MeanGrayValue" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="295" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[10]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Clipped" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="310" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[11]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Area" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="325" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[12]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Length" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="340" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[13]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Width" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="355" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[14]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Xmin" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="370" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[15]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Xmax" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="385" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[16]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Ymin" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="798" />
+            <Property ID="Y" Value="400" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[17]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Ymax" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="415" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[18]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Circularity" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="430" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[19]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Rectangularity" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="445" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[20]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Anisometry" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="460" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[21]">
+        <Property ID="ObjectID" Value="SubPixelBlob_InnerCirclePositionX" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="475" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[22]">
+        <Property ID="ObjectID" Value="SubPixelBlob_InnerCirclePositionY" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="798" />
+            <Property ID="Y" Value="490" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[23]">
+        <Property ID="ObjectID" Value="SubPixelBlob_InnerCircleRadius" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="505" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[24]">
+        <Property ID="ObjectID" Value="SubPixelBlob_PositionX" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="520" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[25]">
+        <Property ID="ObjectID" Value="SubPixelBlob_PositionY" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="535" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[26]">
+        <Property ID="ObjectID" Value="SubPixelBlob_Orientation" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="550" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[27]">
+        <Property ID="ObjectID" Value="SubPixelBlob_RotCenterX" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="565" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[28]">
+        <Property ID="ObjectID" Value="SubPixelBlob_RotCenterY" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="799" />
+            <Property ID="Y" Value="580" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[29]">
+        <Property ID="ObjectID" Value="VP.VP.SubpixlBlob_Enable.VF.VfSubpixelBlob_1.Enable" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[30]">
+        <Property ID="ObjectID" Value="VP.VP.SubpixelBlob_RegionFeatures.VF.VfSubpixelBlob_1.RegionFeatures" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[31]">
+        <Property ID="ObjectID" Value="VP.VP.SubpixelBlob_EnhancedBlobInfo.VF.VfSubpixelBlob_1.EnhancedBlobInformation" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[32]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.NumResults.VP.VP.SubPixelBlob_NumResults" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[33]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.FunctionProcessingTime.VP.VP.SubPixelBlob_FuncProcTime" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[34]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.ModelNumber.VP.VP.SubPixelBlob_ModelNumber" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[35]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.MeanGrayValue.VP.VP.SubPixelBlob_MeanGrayValue" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[36]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Clipped.VP.VP.SubPixelBlob_Clipped" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[37]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Area.VP.VP.SubPixelBlob_Area" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[38]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Length.VP.VP.SubPixelBlob_Length" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[39]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Width.VP.VP.SubPixelBlob_Width" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[40]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Xmin.VP.VP.SubPixelBlob_Xmin" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[41]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Xmax.VP.VP.SubPixelBlob_Xmax" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[42]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Ymin.VP.VP.SubPixelBlob_Ymin" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[43]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Ymax.VP.VP.SubPixelBlob_Ymax" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[44]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Circularity.VP.VP.SubPixelBlob_Circularity" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[45]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Rectangularity.VP.VP.SubPixelBlob_Rectangularity" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[46]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Anisometry.VP.VP.SubPixelBlob_Anisometry" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[47]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.InnerCirclePositionX.VP.VP.SubPixelBlob_InnerCirclePositionX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[48]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.InnerCirclePositionY.VP.VP.SubPixelBlob_InnerCirclePositionY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[49]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.InnerCircleRadius.VP.VP.SubPixelBlob_InnerCircleRadius" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[50]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.PositionX.VP.VP.SubPixelBlob_PositionX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[51]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.PositionY.VP.VP.SubPixelBlob_PositionY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[52]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.Orientation.VP.VP.SubPixelBlob_Orientation" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[53]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.RotCenterX.VP.VP.SubPixelBlob_RotCenterX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[54]">
+        <Property ID="ObjectID" Value="VF.VfSubpixelBlob_1.RotCenterY.VP.VP.SubPixelBlob_RotCenterY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

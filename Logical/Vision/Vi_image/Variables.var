@@ -1,0 +1,26 @@
+VAR CONSTANT
+	MAX_IMAGE_SIZE : UDINT := 5320000; (*Details for the calculation of the size see in the INIT*)
+	MAX_ENCODED_SIZE : UDINT := 7078000; (*Details for the calculation of the size see in the INIT*)
+	MAX_SVG_SIZE : UDINT := 7080000; (*Details for the calculation of the size see in the INIT*)
+	IMG_PIXEL_WIDTH : UDINT := 1280; (*See camera documentation*)
+	IMG_PIXEL_HEIGHT : UDINT := 1024; (*See camera documentation*)
+END_VAR
+(**)
+VAR
+	BufferForBinaryImageData : ARRAY[0..MAX_IMAGE_SIZE] OF USINT; (*Buffer for the raw img-data (bmp or jpg)*)
+	BufferForBase64EncodedImageData : ARRAY[0..MAX_ENCODED_SIZE] OF USINT; (*Buffer for t*)
+	BufferForSvgCameraImage : STRING[MAX_SVG_SIZE];
+	Step : INT;
+	ViBaseGetImage_0 : ViBaseGetImage;
+	httpEncodeBase64_0 : httpEncodeBase64;
+	Status : DINT;
+	tmpStr : STRING[80];
+END_VAR
+(**)
+(*File-Handling*)
+VAR
+	FileDelete_0 : FileDelete;
+	FileCreate_0 : FileCreate;
+	FileWrite_0 : FileWrite;
+	FileClose_0 : FileClose;
+END_VAR

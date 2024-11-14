@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="VAClutMatc" Type="visionapplication">
+    <Group ID="ImgProcessingInputs">
+      <Group ID="Input[0]">
+        <Property ID="ChannelID" Value="ClutterMatching_Enable" />
+      </Group>
+      <Group ID="Input[1]">
+        <Property ID="ChannelID" Value="ClutterMatching_MinScore" />
+      </Group>
+      <Group ID="Input[2]">
+        <Property ID="ChannelID" Value="ClutterMatching_MaxOverlap" />
+      </Group>
+    </Group>
+    <Group ID="VisionFunctionSet">
+      <Group ID="VisionProgramSettings">
+        <Property ID="CompilerOption" Value="0" />
+      </Group>
+      <Group ID="VfInstance[1]">
+        <Property ID="VfName" Value="VfClutterMatching_1" />
+        <Property ID="VfExecutionNr" Value="1" />
+        <Selector ID="VfType" Value="vf-clutter-matching">
+          <Group ID="VfWirings">
+            <Group ID="Image">
+              <Selector ID="SourceType" Value="ImageAcquisition">
+                <Property ID="IaParameter" Value="Image01" />
+              </Selector>
+            </Group>
+            <Group ID="Enable">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="ClutterMatching_Enable" />
+              </Selector>
+            </Group>
+            <Group ID="NumSearchMax">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="Timeout">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="MinScore">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="ClutterMatching_MinScore" />
+              </Selector>
+            </Group>
+            <Group ID="MaxOverlap">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="Input">
+                <Property ID="IoParameter" Value="ClutterMatching_MaxOverlap" />
+              </Selector>
+            </Group>
+            <Group ID="Alignment">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIOrientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIRotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+            <Group ID="OffsetROIRotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+              <Selector ID="SourceType" Value="DefaultVal" />
+            </Group>
+          </Group>
+          <Group ID="VfOutputs">
+            <Group ID="NumResults">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="FunctionProcessingTime">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="ModelNumber">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Score">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Scale">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="Orientation">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="RotCenterX">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="RotCenterY">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="EdgeClutterScore">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="GrayClutterScore">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="ConstraintClutterScore">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="BaseModelNumber">
+              <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+          </Group>
+        </Selector>
+      </Group>
+    </Group>
+    <Group ID="ImgProcessingOutputs">
+      <Group ID="Output[0]">
+        <Property ID="ChannelID" Value="ClutterMatching_NumResults" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="NumResults" />
+        </Group>
+      </Group>
+      <Group ID="Output[1]">
+        <Property ID="ChannelID" Value="ClutterMatching_FuncProcTime" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="FunctionProcessingTime" />
+        </Group>
+      </Group>
+      <Group ID="Output[2]">
+        <Property ID="ChannelID" Value="ClutterMatching_ModelNumber" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="ModelNumber" />
+        </Group>
+      </Group>
+      <Group ID="Output[3]">
+        <Property ID="ChannelID" Value="ClutterMatching_Score" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="Score" />
+        </Group>
+      </Group>
+      <Group ID="Output[4]">
+        <Property ID="ChannelID" Value="ClutterMatching_Scale" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="Scale" />
+        </Group>
+      </Group>
+      <Group ID="Output[5]">
+        <Property ID="ChannelID" Value="ClutterMatching_PosX" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="PositionX" />
+        </Group>
+      </Group>
+      <Group ID="Output[6]">
+        <Property ID="ChannelID" Value="ClutterMatching_PosY" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="PositionY" />
+        </Group>
+      </Group>
+      <Group ID="Output[7]">
+        <Property ID="ChannelID" Value="ClutterMatching_Orientation" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="Orientation" />
+        </Group>
+      </Group>
+      <Group ID="Output[8]">
+        <Property ID="ChannelID" Value="ClutterMatching_RotCenterX" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="RotCenterX" />
+        </Group>
+      </Group>
+      <Group ID="Output[9]">
+        <Property ID="ChannelID" Value="ClutterMatching_RotCenterY" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="RotCenterY" />
+        </Group>
+      </Group>
+      <Group ID="Output[10]">
+        <Property ID="ChannelID" Value="ClutterMatching_EdgeClutterScore" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="EdgeClutterScore" />
+        </Group>
+      </Group>
+      <Group ID="Output[11]">
+        <Property ID="ChannelID" Value="ClutterMatching_GrayClutterScore" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="GrayClutterScore" />
+        </Group>
+      </Group>
+      <Group ID="Output[12]">
+        <Property ID="ChannelID" Value="ClutterMatching_ConstraintClutterScore" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="ConstraintClutterScore" />
+        </Group>
+      </Group>
+      <Group ID="Output[13]">
+        <Property ID="ChannelID" Value="ClutterMatching_BaseModelNumber" />
+        <Group ID="VpOutputWire">
+          <Property ID="SourceVfName" Value="VfClutterMatching_1" />
+          <Property ID="VfOutputParameter" Value="BaseModelNumber" />
+        </Group>
+      </Group>
+    </Group>
+    <Group ID="ViewModelDataSet">
+      <Group ID="ViewModelData[1]">
+        <Property ID="ObjectID" Value="ImageAcquisition" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="269" />
+            <Property ID="Y" Value="92" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[2]">
+        <Property ID="ObjectID" Value="ClutterMatching_Enable" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="318" />
+            <Property ID="Y" Value="265" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[3]">
+        <Property ID="ObjectID" Value="ClutterMatching_MinScore" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="318" />
+            <Property ID="Y" Value="310" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[4]">
+        <Property ID="ObjectID" Value="ClutterMatching_MaxOverlap" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="317" />
+            <Property ID="Y" Value="325" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[5]">
+        <Property ID="ObjectID" Value="VfClutterMatching_1" />
+        <Property ID="ClassId" Value="FUB" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="553" />
+            <Property ID="Y" Value="362" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[6]">
+        <Property ID="ObjectID" Value="ClutterMatching_NumResults" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="796" />
+            <Property ID="Y" Value="264" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[7]">
+        <Property ID="ObjectID" Value="ClutterMatching_FuncProcTime" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="797" />
+            <Property ID="Y" Value="280" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[8]">
+        <Property ID="ObjectID" Value="ClutterMatching_ModelNumber" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="797" />
+            <Property ID="Y" Value="310" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[9]">
+        <Property ID="ObjectID" Value="ClutterMatching_Score" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="797" />
+            <Property ID="Y" Value="325" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[10]">
+        <Property ID="ObjectID" Value="ClutterMatching_Scale" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="797" />
+            <Property ID="Y" Value="339" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[11]">
+        <Property ID="ObjectID" Value="ClutterMatching_PosX" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="797" />
+            <Property ID="Y" Value="354" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[12]">
+        <Property ID="ObjectID" Value="ClutterMatching_PosY" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="797" />
+            <Property ID="Y" Value="369" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[13]">
+        <Property ID="ObjectID" Value="ClutterMatching_Orientation" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="797" />
+            <Property ID="Y" Value="384" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[14]">
+        <Property ID="ObjectID" Value="ClutterMatching_RotCenterX" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="797" />
+            <Property ID="Y" Value="399" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[15]">
+        <Property ID="ObjectID" Value="ClutterMatching_RotCenterY" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="797" />
+            <Property ID="Y" Value="414" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[16]">
+        <Property ID="ObjectID" Value="ClutterMatching_EdgeClutterScore" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="796" />
+            <Property ID="Y" Value="429" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[17]">
+        <Property ID="ObjectID" Value="ClutterMatching_GrayClutterScore" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="796" />
+            <Property ID="Y" Value="444" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[18]">
+        <Property ID="ObjectID" Value="ClutterMatching_ConstraintClutterScore" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="796" />
+            <Property ID="Y" Value="459" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[19]">
+        <Property ID="ObjectID" Value="ClutterMatching_BaseModelNumber" />
+        <Property ID="ClassId" Value="Channel" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="796" />
+            <Property ID="Y" Value="474" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[20]">
+        <Property ID="ObjectID" Value="VP.VP.ClutterMatching_Enable.VF.VfClutterMatching_1.Enable" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[21]">
+        <Property ID="ObjectID" Value="VP.VP.ClutterMatching_MinScore.VF.VfClutterMatching_1.MinScore" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[22]">
+        <Property ID="ObjectID" Value="VP.VP.ClutterMatching_MaxOverlap.VF.VfClutterMatching_1.MaxOverlap" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[23]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.NumResults.VP.VP.ClutterMatching_NumResults" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[24]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.FunctionProcessingTime.VP.VP.ClutterMatching_FuncProcTime" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[25]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.ModelNumber.VP.VP.ClutterMatching_ModelNumber" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[26]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.Score.VP.VP.ClutterMatching_Score" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[27]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.Scale.VP.VP.ClutterMatching_Scale" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[28]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.PositionX.VP.VP.ClutterMatching_PosX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[29]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.PositionY.VP.VP.ClutterMatching_PosY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[30]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.Orientation.VP.VP.ClutterMatching_Orientation" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[31]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.RotCenterX.VP.VP.ClutterMatching_RotCenterX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[32]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.RotCenterY.VP.VP.ClutterMatching_RotCenterY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[33]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.EdgeClutterScore.VP.VP.ClutterMatching_EdgeClutterScore" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[34]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.GrayClutterScore.VP.VP.ClutterMatching_GrayClutterScore" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[35]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.ConstraintClutterScore.VP.VP.ClutterMatching_ConstraintClutterScore" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[36]">
+        <Property ID="ObjectID" Value="VF.VfClutterMatching_1.BaseModelNumber.VP.VP.ClutterMatching_BaseModelNumber" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

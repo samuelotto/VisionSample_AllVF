@@ -1,0 +1,26 @@
+VAR_CONFIG
+	::Vi_main:VisionCtrl.Status.CameraReady AT %IX."VSS112Q22.041P-000".ImageAcquisitionReady;
+	::Vi_main:VisionCtrl.Status.ImageProcessingActive AT %IX."VSS112Q22.041P-000".ImageProcessingActive;
+	::Vi_main:VisionCtrl.Parameters.SetNettime AT %QD."VSS112Q22.041P-000".DelayNettime01;
+	::Vi_main:VisionCtrl.Parameters.ExposureTime AT %QD."VSS112Q22.041P-000".ExposureTime01;
+	::Vi_main:VisionCtrl.Parameters.SetFocus AT %QW."VSS112Q22.041P-000".SetFocus;
+	::Vi_main:VisionCtrl.Parameters.FlashColor AT %QB."VSS112Q22.041P-000".FlashColor01;
+	::Vi_main:VisionCtrl.Parameters.FlashSegment AT %QB."VSS112Q22.041P-000".FlashSegment01;
+	::Vi_main:VisionCtrl.Cmd.SearchAcquisitionSettings AT %QX."VSS112Q22.041P-000".SearchAcquisitionSettings;
+	::Vi_main:VisionCtrl.Cmd.Enable AT %QX."VSS112Q22.041P-000".CodeReader_Enable;
+	::Vi_main:VisionCtrl.Cmd.AcquireImage AT %QX."VSS112Q22.041P-000".ImageAcquisition;
+	::Vi_main:VisionCtrl.Status.CompletedAcquisitionCnt AT %IB."VSS112Q22.041P-000".CompletedAcquisitionCnt;
+	::Vi_main:VisionCtrl.Status.AcceptedAcquisitionCnt AT %IB."VSS112Q22.041P-000".AcceptedAcquisitionCnt;
+	::Vi_main:ActNettime_SoC AT %ID."X20CP1686X".IF3.NettimeSoC;
+	::Vi_main:BacklightCtrl.Status.LightReady AT %IX."VSLB11Q00.54DP-000".Ready;
+	::Vi_main:BacklightCtrl.Cmd.FlashTrigger AT %QX."VSLB11Q00.54DP-000".FlashTrigger;
+	::Vi_main:BacklightCtrl.Parameters.SetNettime AT %QD."VSLB11Q00.54DP-000".Nettime01;
+	::Vi_main:BacklightCtrl.Parameters.ExposureTime AT %QD."VSLB11Q00.54DP-000".ExposureTime01;
+	::Vi_main:BacklightCtrl.Parameters.FlashColor AT %QB."VSLB11Q00.54DP-000".FlashColor01;
+	::Vi_main:LightBarCtrl.Status.LightReady AT %IX."VSLL11Q20.67AP-000".Ready;
+	::Vi_main:LightBarCtrl.Cmd.FlashTrigger AT %QX."VSLL11Q20.67AP-000".FlashTrigger;
+	::Vi_main:LightBarCtrl.Parameters.SetNettime AT %QD."VSLL11Q20.67AP-000".Nettime01;
+	::Vi_main:LightBarCtrl.Parameters.ExposureTime AT %QD."VSLL11Q20.67AP-000".ExposureTime01;
+	::Vi_main:BacklightCtrl.Parameters.FlashColor AT %QB."VSLL11Q20.67AP-000".FlashColor01;
+	::Vi_main:LightBarCtrl.Parameters.SetAngle AT %QW."VSLL11Q20.67AP-000".SetAngleTotal;
+END_VAR
