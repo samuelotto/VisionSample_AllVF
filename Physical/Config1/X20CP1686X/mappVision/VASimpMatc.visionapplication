@@ -23,6 +23,7 @@
         <Selector ID="VfType" Value="vf-simple-matching">
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -218,7 +219,7 @@
         <Group ID="Positioning">
           <Group ID="Point[1]">
             <Property ID="X" Value="763" />
-            <Property ID="Y" Value="259" />
+            <Property ID="Y" Value="260" />
           </Group>
         </Group>
       </Group>

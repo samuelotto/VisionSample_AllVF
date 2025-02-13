@@ -7,5 +7,11 @@
     <Group ID="Permissions">
       <Property ID="WriteAccessRole" Value="Everyone" />
     </Group>
+    <Group ID="DeepLearning">
+      <Group ID="CustomDlNetworks">
+        <Property ID="DLFileDeviceName" />
+        <Property ID="DLNetworkBuildPath" />
+      </Group>
+    </Group>
   </Element>
 </Configuration>

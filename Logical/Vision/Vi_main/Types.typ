@@ -9,14 +9,14 @@ TYPE
 	VisionCtrlCmdType : 	STRUCT 
 		AcquireImage : BOOL;
 		SearchAcquisitionSettings : BOOL;
-		Enable : BOOL;
+		EnableVisionFunction : BOOL;
 	END_STRUCT;
 	VisionCtrlParType : 	STRUCT 
-		FlashColor : USINT;
-		FlashSegment : USINT;
 		SetFocus : UINT;
 		ExposureTime : UDINT;
 		SetNettime : DINT;
+		FlashColor : USINT;
+		FlashSegment : USINT;
 	END_STRUCT;
 	VisionCtrlStatusType : 	STRUCT 
 		CameraReady : BOOL;
@@ -39,10 +39,10 @@ TYPE
 		FlashTrigger : BOOL;
 	END_STRUCT;
 	LightCtrlParType : 	STRUCT 
-		SetAngle : UINT;
+		SetNettime : DINT;
 		ExposureTime : UDINT;
 		FlashColor : USINT;
-		SetNettime : DINT;
+		SetAngle : UINT;
 	END_STRUCT;
 	LightCtrlStatusType : 	STRUCT 
 		LightReady : BOOL;

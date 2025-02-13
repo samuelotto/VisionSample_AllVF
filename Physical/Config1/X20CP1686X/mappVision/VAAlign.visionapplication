@@ -39,6 +39,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -153,6 +154,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -255,6 +257,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>

@@ -11,7 +11,7 @@ PROGRAM _INIT
 		// A jpg-image is compressed, so the buffer can be much smaller. See AS Help.
 		// The here saved image with default values (1,3MP, jpg with 80% quality) needs about 350.000 Bytes (0,35 MB)
 		
-	// Note: Adapt the constants "IMG_PIXEL_WIDTH/HEIGHT" to the cameras resolutin
+	// Note: Adapt the constants "IMG_PIXEL_WIDTH/HEIGHT" to the cameras resolution
 END_PROGRAM
 PROGRAM _CYCLIC
 	CASE Step OF
@@ -30,6 +30,8 @@ PROGRAM _CYCLIC
 				CmdSaveFile := FALSE;
 				Step := 20;
 			END_IF
+		
+		// Load image, convert to base 64 and generate svg-data for mappView or save as file
 		10:  // Load image from camera into variable (internal buffer)
 			ViBaseGetImage_0.MpLink := ADR(VCMyCam);
 			ViBaseGetImage_0.Execute := TRUE;
@@ -63,7 +65,10 @@ PROGRAM _CYCLIC
 				Status := httpEncodeBase64_0.status;
 				Step := 100;
 			END_IF
-		12:	
+		12:	// Generate svg-data
+			// The svg-data (could also be saved as a file) contains some header and other information.
+			// This data will be created as one big string where the image (as base64) is embedded.
+			// See also here: https://help.br-automation.com/#/en/4/visualization%2Fmappview%2Fwidgets%2Fdrawing%2Fpaper%2Fkonzept.html
 			BufferForSvgCameraImage := '<svg xmlns="http://www.w3.org/2000/svg" width="1280px" height="1024px" viewBox="0 0 ';	
 			brsitoa(IMG_PIXEL_WIDTH, ADR(tmpStr));
 			brsstrcat(ADR(BufferForSvgCameraImage), ADR(tmpStr));

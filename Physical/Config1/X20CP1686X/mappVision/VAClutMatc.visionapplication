@@ -23,6 +23,7 @@
         <Selector ID="VfType" Value="vf-clutter-matching">
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>

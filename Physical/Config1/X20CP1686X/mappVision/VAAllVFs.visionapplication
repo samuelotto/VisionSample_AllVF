@@ -109,6 +109,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -204,6 +205,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -325,6 +327,42 @@
             <Group ID="RotCenterY">
               <Property ID="ChannelVisibleInGE" Value="TRUE" />
             </Group>
+            <Group ID="PositionBBoxX">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="PositionBBoxY">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="OrientationBBox">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="X_Ymin">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="X_Ymax">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="Y_Xmin">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="Y_Xmax">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="BalancePositionX">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="BalancePositionY">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="BalancePositionZ">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="MaxGrayValue">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="AverageMaxGrayValue">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
           </Group>
         </Selector>
       </Group>
@@ -339,6 +377,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -473,6 +512,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -593,6 +633,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -684,6 +725,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -786,6 +828,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -847,6 +890,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -929,6 +973,7 @@
         <Selector ID="VfType" Value="vf-clutter-matching">
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -1036,6 +1081,7 @@
         <Selector ID="VfType" Value="vf-simple-matching">
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -5578,118 +5624,6 @@
         </Group>
       </Group>
       <Group ID="ViewModelData[305]">
-        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.NumResults.VP.VP.SimpleMatching_NumResults" />
-        <Property ID="ClassId" Value="Wire" />
-        <Group ID="Positioning">
-          <Group ID="Point[1]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-          <Group ID="Point[2]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-        </Group>
-      </Group>
-      <Group ID="ViewModelData[306]">
-        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.FunctionProcessingTime.VP.VP.SimpleMatching_FuncProcTime" />
-        <Property ID="ClassId" Value="Wire" />
-        <Group ID="Positioning">
-          <Group ID="Point[1]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-          <Group ID="Point[2]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-        </Group>
-      </Group>
-      <Group ID="ViewModelData[307]">
-        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.Score.VP.VP.SimpleMatching_Score" />
-        <Property ID="ClassId" Value="Wire" />
-        <Group ID="Positioning">
-          <Group ID="Point[1]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-          <Group ID="Point[2]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-        </Group>
-      </Group>
-      <Group ID="ViewModelData[308]">
-        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.PositionX.VP.VP.SimpleMatching_PosX" />
-        <Property ID="ClassId" Value="Wire" />
-        <Group ID="Positioning">
-          <Group ID="Point[1]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-          <Group ID="Point[2]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-        </Group>
-      </Group>
-      <Group ID="ViewModelData[309]">
-        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.PositionY.VP.VP.SimpleMatching_PosY" />
-        <Property ID="ClassId" Value="Wire" />
-        <Group ID="Positioning">
-          <Group ID="Point[1]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-          <Group ID="Point[2]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-        </Group>
-      </Group>
-      <Group ID="ViewModelData[310]">
-        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.Orientation.VP.VP.SimpleMatching_Orientation" />
-        <Property ID="ClassId" Value="Wire" />
-        <Group ID="Positioning">
-          <Group ID="Point[1]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-          <Group ID="Point[2]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-        </Group>
-      </Group>
-      <Group ID="ViewModelData[311]">
-        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.RotCenterX.VP.VP.SimpleMatching_RotCenterX" />
-        <Property ID="ClassId" Value="Wire" />
-        <Group ID="Positioning">
-          <Group ID="Point[1]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-          <Group ID="Point[2]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-        </Group>
-      </Group>
-      <Group ID="ViewModelData[312]">
-        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.RotCenterY.VP.VP.SimpleMatching_RotCenterY" />
-        <Property ID="ClassId" Value="Wire" />
-        <Group ID="Positioning">
-          <Group ID="Point[1]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-          <Group ID="Point[2]">
-            <Property ID="X" Value="0" />
-            <Property ID="Y" Value="0" />
-          </Group>
-        </Group>
-      </Group>
-      <Group ID="ViewModelData[313]">
         <Property ID="ObjectID" Value="VP.VP.SimpleMatching_Enable.VF.VfSimpleMatching_1.Enable" />
         <Property ID="ClassId" Value="Wire" />
         <Group ID="Positioning">
@@ -5703,7 +5637,7 @@
           </Group>
         </Group>
       </Group>
-      <Group ID="ViewModelData[314]">
+      <Group ID="ViewModelData[306]">
         <Property ID="ObjectID" Value="VP.VP.SimpleMatching_MinScore.VF.VfSimpleMatching_1.MinScore" />
         <Property ID="ClassId" Value="Wire" />
         <Group ID="Positioning">
@@ -5717,8 +5651,120 @@
           </Group>
         </Group>
       </Group>
-      <Group ID="ViewModelData[315]">
+      <Group ID="ViewModelData[307]">
         <Property ID="ObjectID" Value="VP.VP.SimpleMatching_ExecuteMode.VF.VfSimpleMatching_1.ExecuteMode" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[308]">
+        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.NumResults.VP.VP.SimpleMatching_NumResults" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[309]">
+        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.FunctionProcessingTime.VP.VP.SimpleMatching_FuncProcTime" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[310]">
+        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.Score.VP.VP.SimpleMatching_Score" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[311]">
+        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.PositionX.VP.VP.SimpleMatching_PosX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[312]">
+        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.PositionY.VP.VP.SimpleMatching_PosY" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[313]">
+        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.Orientation.VP.VP.SimpleMatching_Orientation" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[314]">
+        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.RotCenterX.VP.VP.SimpleMatching_RotCenterX" />
+        <Property ID="ClassId" Value="Wire" />
+        <Group ID="Positioning">
+          <Group ID="Point[1]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+          <Group ID="Point[2]">
+            <Property ID="X" Value="0" />
+            <Property ID="Y" Value="0" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="ViewModelData[315]">
+        <Property ID="ObjectID" Value="VF.VfSimpleMatching_1.RotCenterY.VP.VP.SimpleMatching_RotCenterY" />
         <Property ID="ClassId" Value="Wire" />
         <Group ID="Positioning">
           <Group ID="Point[1]">

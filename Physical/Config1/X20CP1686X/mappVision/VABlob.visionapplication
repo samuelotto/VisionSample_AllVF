@@ -28,6 +28,7 @@
           </Group>
           <Group ID="VfWirings">
             <Group ID="Image">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
               <Selector ID="SourceType" Value="ImageAcquisition">
                 <Property ID="IaParameter" Value="Image01" />
               </Selector>
@@ -148,6 +149,42 @@
             </Group>
             <Group ID="RotCenterY">
               <Property ID="ChannelVisibleInGE" Value="TRUE" />
+            </Group>
+            <Group ID="PositionBBoxX">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="PositionBBoxY">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="OrientationBBox">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="X_Ymin">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="X_Ymax">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="Y_Xmin">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="Y_Xmax">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="BalancePositionX">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="BalancePositionY">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="BalancePositionZ">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="MaxGrayValue">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
+            </Group>
+            <Group ID="AverageMaxGrayValue">
+              <Property ID="ChannelVisibleInGE" Value="FALSE" />
             </Group>
           </Group>
         </Selector>
