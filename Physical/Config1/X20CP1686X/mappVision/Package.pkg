@@ -5,7 +5,8 @@
     <Object Type="File">Settings.vicfg</Object>
     <Object Type="File">VCMyCam.visioncomponent</Object>
     <Object Type="File">VAAllVFs.visionapplication</Object>
-    <Object Type="File">VAAlign.visionapplication</Object>
+    <Object Type="File">VAAlignCR.visionapplication</Object>
+    <Object Type="File">VAAlignMA.visionapplication</Object>
     <Object Type="File">VACR.visionapplication</Object>
     <Object Type="File">VAMatch.visionapplication</Object>
     <Object Type="File">VAMeas.visionapplication</Object>
