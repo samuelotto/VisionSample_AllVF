@@ -24,7 +24,6 @@ PROGRAM _CYCLIC
 				// Delete buffers, because of the compressed image (jpg) could be smaller than the last loaded image
 				brsmemset(ADR(BufferForBinaryImageData), 0, SIZEOF(BufferForBinaryImageData));
 				brsmemset(ADR(BufferForBase64EncodedImageData), 0, SIZEOF(BufferForBase64EncodedImageData));
-				brsmemset(ADR(BufferForSvgCameraImage), 0, SIZEOF(BufferForSvgCameraImage));
 				Step := 10;
 			ELSIF CmdSaveFile THEN
 				CmdSaveFile := FALSE;
@@ -69,6 +68,7 @@ PROGRAM _CYCLIC
 			// The svg-data (could also be saved as a file) contains some header and other information.
 			// This data will be created as one big string where the image (as base64) is embedded.
 			// See also here: https://help.br-automation.com/#/en/4/visualization%2Fmappview%2Fwidgets%2Fdrawing%2Fpaper%2Fkonzept.html
+			brsmemset(ADR(BufferForSvgCameraImage), 0, SIZEOF(BufferForSvgCameraImage));
 			BufferForSvgCameraImage := '<svg xmlns="http://www.w3.org/2000/svg" width="1280px" height="1024px" viewBox="0 0 ';	
 			brsitoa(IMG_PIXEL_WIDTH, ADR(tmpStr));
 			brsstrcat(ADR(BufferForSvgCameraImage), ADR(tmpStr));
