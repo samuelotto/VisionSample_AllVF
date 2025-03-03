@@ -7,6 +7,7 @@
   <TaskClass Name="Cyclic#4">
     <Task Name="Vi_image" Source="Vision.Vi_image.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Vi_main" Source="Vision.Vi_main.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Vi_SaveBmp" Source="Vision.Vi_SaveBmp.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />
@@ -29,7 +30,6 @@
     <BinaryObject Name="VAMatch" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="VAPixelCtr" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="sysconf" Source="" Memory="SystemROM" Language="Binary" />
-    <BinaryObject Name="VAAlign" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="VAClutMatc" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="asfw" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="arconfig" Source="" Memory="SystemROM" Language="Binary" />
@@ -43,6 +43,9 @@
     <BinaryObject Name="iomap" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Role" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="VASimpMatc" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="VAAlignCR" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="VAAlignMA" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="VAAlign" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>
     <LibraryObject Name="ViBase" Source="Libraries.ViBase.lby" Memory="UserROM" Language="binary" Debugging="true" />
@@ -59,7 +62,8 @@
     <LibraryObject Name="runtime" Source="Libraries.runtime.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="AsHttp" Source="Libraries.AsHttp.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="AsBrStr" Source="Libraries.AsBrStr.lby" Memory="UserROM" Language="binary" Debugging="true" />
-    <LibraryObject Name="arssl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="brsystem" Source="Libraries.brsystem.lby" Memory="UserROM" Language="binary" Debugging="true" />
+    <LibraryObject Name="arssl" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>
 </SwConfiguration>

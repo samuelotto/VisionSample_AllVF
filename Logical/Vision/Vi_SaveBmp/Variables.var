@@ -1,0 +1,19 @@
+VAR CONSTANT
+	MAX_IMAGE_SIZE : UDINT := 5320000; (*Details for the calculation of the size see in the INIT*)
+END_VAR
+(**)
+VAR
+	CmdSaveRawBmpFile : BOOL;
+	BufferForBinaryImageData : ARRAY[0..MAX_IMAGE_SIZE] OF USINT; (*Buffer for the raw img-data (bmp or jpg)*)
+	Step : INT;
+	ViBaseGetImage_0 : ViBaseGetImage;
+	Status : DINT;
+END_VAR
+(**)
+(*File-Handling*)
+VAR
+	FileDelete_0 : FileDelete;
+	FileCreate_0 : FileCreate;
+	FileWrite_0 : FileWrite;
+	FileClose_0 : FileClose;
+END_VAR

@@ -24,7 +24,8 @@ Vision Function
 * Sample task for triggering the [Camera](https://www.br-automation.com/de-de/produkte/vision-systeme/smart-camera/)
 	* Including the use of [Smart Light](https://www.br-automation.com/de-de/produkte/vision-systeme/smart-light/)
 * Sample task for showing the image on a mappView visualization
-	* Including the download of the image e.g. as jpg, bmp or svg file
+	* Including the download of the image e.g. as jpg or svg file
+* Sample task for downloading and saving the raw bmp-image.  This can be necessary, if the mappVision HMI cannot be used, e.g. because of the object is moving and the trigger is fired via application or mappMotion.
 
 
 ## Included Vision Functions
@@ -52,6 +53,9 @@ Should also work with newer and some older versions
 ## V1.00.0
 First version
 
+## V1.01.0
+Added task Vi_SaveBmp
+
 # Detailed information about the project
 ## General configuration
 All settings are done as described in the mappVision Getting Started: [Automation Help - mappVision - Getting Started](https://help.br-automation.com/#/en/4/machine_vision%2Fmapp_vision%2Fgetting_started%2Fgetting_started.html)
@@ -74,6 +78,11 @@ This task has two features:
 * Save the image on the PLC
 
 The variables **CmdShowImageMappView** and **CmdSaveFile** start the functions.
+
+## Task Vi_SaveBmp
+This sample-task loads the image from a camera and saves it as bmp file. This can be necessary, if the mappVision HMI cannot be used, e.g. because of the object is moving and the trigger is fired via application or mappMotion.
+
+The variable **CmdSaveRawBmpFile** starts the function.
 
 ## Vision Functions
 

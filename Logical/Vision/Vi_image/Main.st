@@ -1,5 +1,7 @@
 PROGRAM _INIT
 	// This sample-task loads the image from a camera and shows it on a Paper-Widget in mappView
+	// Optionally, the image can also be saved on the CF
+	// Note: This sample is a code-sample. It should be understood and adapted to the personal needs.
 	// A sample with much more functions can also be found here (branch "basic"): https://github.com/br-automation-com/mappVision-Demo/blob/basic/Logical/Vision/Vi_image/Main.st
 	
 	// Calculation of buffer-sizes
@@ -34,7 +36,7 @@ PROGRAM _CYCLIC
 		10:  // Load image from camera into variable (internal buffer)
 			ViBaseGetImage_0.MpLink := ADR(VCMyCam);
 			ViBaseGetImage_0.Execute := TRUE;
-			ViBaseGetImage_0.Type := viBASE_IMAGE_TYPE_JPG; // For mappView the compressed jpg is besser for reduced image size
+			ViBaseGetImage_0.Type := viBASE_IMAGE_TYPE_JPG; // For mappView the compressed jpg is better for reduced image size
 			ViBaseGetImage_0.QualityLevel := 80; // Image is still very good for mappView, but the size is reduced by about 70%
 			ViBaseGetImage_0.Timeout := T#5s;
 			ViBaseGetImage_0.Buffer := ADR(BufferForBinaryImageData);
