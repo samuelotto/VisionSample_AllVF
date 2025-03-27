@@ -7,6 +7,13 @@
         <Property ID="ChannelID" Value="Measurement_Enable" />
       </Group>
     </Group>
+    <Group ID="ImageAcquisition">
+      <Group ID="AcquisitionConfiguration">
+        <Selector ID="TriggerSource">
+          <Property ID="TriggerDelay" Value="1" />
+        </Selector>
+      </Group>
+    </Group>
     <Group ID="VisionFunctionSet">
       <Group ID="VisionProgramSettings">
         <Property ID="CompilerOption" Value="0" />
