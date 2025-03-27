@@ -6,6 +6,7 @@
 * [Requirements](#requirements)
 * [Revision History](#revision-history)
 * [Detailed information about the project](#detailed-information-about-the-project)
+* [Disclaimer](#disclaimer)
 
 # Introduction
 A simple sample for [B&amp;R Machine Vision](https://www.br-automation.com/de-de/produkte/vision-systeme/) with all Vision Functions.
@@ -95,4 +96,10 @@ With this "empty" functions it is easily possible to test everything in the Offl
 
 All Image-Acquisition parameters are set to default-values and need to be adapted to your camera. E.g. Image-Size, Trigger-source (Delay or NetTime), ... Only the VACR uses NetTime, because of it is used as the sample for the Smart Light
 
+# Disclaimer
+This software project is provided for training and demonstration purposes only and is not intended for production use.
+
+It is provided as-is, without warranty or support. The author assume no liability for any damages resulting from the use or misuse of this software.
+
+This software has not been tested for security, data protection, or regulatory compliance (e.g., Cyber Resilience Act). The user is responsible for verifying, adapting, and securing the software before using it in their own environment.
 
