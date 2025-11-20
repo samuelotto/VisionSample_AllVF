@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?AutomationStudio FileVersion="4.9"?>
+<BR.AS.HardwareTopology>
+  <TimeStamps>
+    <TimeStamp LogicalPath="Config_EM1613.Hardware.hw" LastWriteTime="11/19/2025 13:10:21" />
+  </TimeStamps>
+  <Modules>
+    <Module Name="VSLB11Q00.54DP-000" Type="VSLB11Q00.54DP-000" X="550" Y="299" />
+    <Module Name="VSLL11Q20.67AP-000" Type="VSLL11Q20.67AP-000" X="380" Y="299" />
+    <Module Name="X20EM1613" Type="X20EM1613" X="85" Y="85" />
+    <Module Name="VSC122R25.051P-000" Type="VSC122R25.051P-000" X="250" Y="299" />
+  </Modules>
+  <Links>
+    <Link From="VSLB11Q00.54DP-000" To="VSLL11Q20.67AP-000" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="568" Y="417" />
+      <Point X="568" Y="417" />
+      <Point X="568" Y="422" />
+      <Point X="568" Y="435" />
+      <Point X="443" Y="435" />
+      <Point X="443" Y="394" />
+      <Point X="443" Y="389" />
+      <Point X="443" Y="389" />
+    </Link>
+    <Link From="VSLL11Q20.67AP-000" To="VSC122R25.051P-000" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="398" Y="389" />
+      <Point X="398" Y="389" />
+      <Point X="398" Y="394" />
+      <Point X="398" Y="435" />
+      <Point X="313" Y="435" />
+      <Point X="313" Y="422" />
+      <Point X="313" Y="417" />
+      <Point X="313" Y="417" />
+    </Link>
+    <Link From="VSC122R25.051P-000" To="X20EM1613" FromPort="PLK1" ToPort="IF3" IsRoutedByUser="False">
+      <Point X="268" Y="417" />
+      <Point X="268" Y="417" />
+      <Point X="268" Y="422" />
+      <Point X="268" Y="435" />
+      <Point X="149" Y="435" />
+      <Point X="149" Y="206" />
+      <Point X="149" Y="189" />
+      <Point X="149" Y="189" />
+    </Link>
+  </Links>
+  <InfoElements />
+</BR.AS.HardwareTopology>

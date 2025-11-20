@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.12.8.41 FileVersion="4.9"?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="VSC122R25.051P-000" Type="VSC122R25.051P-000" Version="1.10.0.816">
+    <Connection Connector="PLK1" TargetModule="X20EM1613" TargetConnector="IF3" NodeNumber="1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="VSLL11Q20.67AP-000" TargetConnector="PLK1" NodeNumber="1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="Supervision" Value="off" />
+    <Parameter ID="VisionConfig" Value="VCMyCam" />
+  </Module>
+  <Module Name="VSLB11Q00.54DP-000" Type="VSLB11Q00.54DP-000" Version="1.2.0.681">
+    <Connection Connector="PLK1" TargetModule="VSLL11Q20.67AP-000" TargetConnector="PLK2" NodeNumber="17">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="Supervision" Value="off" />
+    <Parameter ID="VisionConfig" Value="VCMyCam" />
+  </Module>
+  <Module Name="VSLL11Q20.67AP-000" Type="VSLL11Q20.67AP-000" Version="1.2.0.681">
+    <Connection Connector="PLK1" TargetModule="VSC122R25.051P-000" TargetConnector="PLK2" NodeNumber="16">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="VSLB11Q00.54DP-000" TargetConnector="PLK1" NodeNumber="16">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="Supervision" Value="off" />
+    <Parameter ID="VisionConfig" Value="VCMyCam" />
+  </Module>
+  <Module Name="X20EM1613" Type="X20EM1613" Version="1.1.1.0">
+    <Connector Name="IF2">
+      <Parameter ID="ActivateDevice" Value="1" />
+      <Parameter ID="Mode" Value="Manual" />
+      <Parameter ID="InternetAddress" Value="192.168.10.1" />
+      <Parameter ID="SubnetMask" Value="255.255.255.0" />
+      <Parameter ID="ActivateSnmp" Value="2" />
+    </Connector>
+    <Connector Name="IF3">
+      <Parameter ID="MtuSize" Value="1500" />
+      <Parameter ID="CycleTime" Value="400" />
+      <Parameter ID="InternetAddress" Value="192.168.200.240" />
+      <Parameter ID="SubnetMask" Value="255.255.255.0" />
+    </Connector>
+    <Parameter ID="ConfigurationID" Value="VisionSample_AllVF_Config1" />
+    <Parameter ID="UserPartitionSize" Value="500" />
+    <Parameter ID="TimerDeviceType" Value="EPLX2X" />
+    <Parameter ID="TimerDevice" Value="X20EM1613.IF3" />
+    <Parameter ID="TaskClassIdleTime" Value="1200" />
+    <Parameter ID="Cyclic1Duration" Value="2400" />
+    <Parameter ID="Cyclic1Tolerance" Value="0" />
+    <Parameter ID="Cyclic2Duration" Value="9600" />
+    <Parameter ID="Cyclic2Tolerance" Value="0" />
+    <Parameter ID="Cyclic3Duration" Value="48000" />
+    <Parameter ID="Cyclic3Tolerance" Value="0" />
+    <Parameter ID="Cyclic4Duration" Value="96000" />
+    <Parameter ID="Cyclic4Tolerance" Value="0" />
+    <Parameter ID="Cyclic6Duration" Value="496000" />
+    <Parameter ID="Cyclic6Tolerance" Value="0" />
+    <Parameter ID="Cyclic7Duration" Value="9600000" />
+    <Parameter ID="Cyclic7Tolerance" Value="0" />
+    <Parameter ID="Cyclic8Duration" Value="2400" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="CF" />
+    <Parameter ID="FileDevicePath1" Value="F:\" />
+    <Group ID="FtpUser1" />
+    <Parameter ID="FtpUsername1" Value="test" />
+    <Parameter ID="FtpUserPassword1" Value="QkT+VSyJDE68GyHqQqfzGbDLRHfoQvgBAqgTYwFwErQ=" Description="test" />
+    <Parameter ID="FtpUserSalt1" Value="9xieoJwW" />
+    <Parameter ID="FTPAccessRight1" Value="0" />
+    <Parameter ID="FTPdevice1" Value="ALL" />
+    <Parameter ID="ActivateOpcUa" Value="1" />
+    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
+  </Module>
+</Hardware>
