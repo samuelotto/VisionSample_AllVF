@@ -46,7 +46,7 @@ FUNCTION_BLOCK ViBaseDeleteApplication (*Function block ViBaseDeleteApplication 
 	VAR_INPUT
 		MpLink : REFERENCE TO ViComponentType; (*Pointer to the vision component .*)
 		Execute : BOOL; (*Execution of the function block begins on a rising edge of this input.*)
-		Name : REFERENCE TO STRING[50]; (*Pointer to the name of the vision application to be loaded.*)
+		Name : REFERENCE TO STRING[50]; (*Pointer to the name of the vision application to be deleted.*)
 	END_VAR
 	VAR_OUTPUT
 		Done : BOOL; (*Execution successful. Function block is finished.*)
@@ -158,6 +158,43 @@ FUNCTION_BLOCK ViBaseAxisBasedAcquisition (*Function block ViBaseAxisBasedAcquis
 		StatusID : DINT; (*Status information*)
 		UpdateDone : BOOL; (*Indicates that new trigger data has been initialized.*)
 		AdditionalInfo : ViBaseAxBsdAcqAddInfoType; (*Additional useful data, e.g. for system monitoring or error analysis.*)
+	END_VAR
+	VAR
+		Internal : {REDUND_UNREPLICABLE} ViBaseInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
+
+FUNCTION_BLOCK ViBaseExport (*Function block ViBaseExport can be used to export the mapp Vision configuration to a file device. perform machine duplication.*)
+	VAR_INPUT
+		MpLink : REFERENCE TO ViComponentType; (*Pointer to any vision component*)
+		Execute : BOOL; (*Execution of the function block begins on a rising edge of this input.*)
+		DeviceName : REFERENCE TO STRING[50]; (*Pointer to the device name. Points to the name of an existing file device (e.g. "HD0") that was created in AS or with function block DevLink.*)
+		FileName : REFERENCE TO STRING[50]; (*Pointer to the name of the file on the file device where the configuration gets exported to.*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*Execution successful. Function block is finished.*)
+		Busy : BOOL; (*The function block is active and must continue to be called.*)
+		Error : BOOL; (*Error during execution.*)
+		StatusID : DINT; (*Status information*)
+	END_VAR
+	VAR
+		Internal : {REDUND_UNREPLICABLE} ViBaseInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK ViBaseImport (*Function block ViBaseImport can be used to import the mapp Vision configuration from a file device.*)
+	VAR_INPUT
+		MpLink : REFERENCE TO ViComponentType; (*Pointer to s vision component*)
+		Execute : BOOL; (*Execution of the function block begins on a rising edge of this input.*)
+		DeviceName : REFERENCE TO STRING[50]; (*Pointer to the device name. Points to the name of an existing file device (e.g. "HD0") that was created in AS or with function block DevLink.*)
+		FileName : REFERENCE TO STRING[50]; (*Pointer to the name of the file on the file device where the configuration files get imported from.*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*Execution successful. Function block is finished.*)
+		Busy : BOOL; (*The function block is active and must continue to be called.*)
+		Error : BOOL; (*Error during execution.*)
+		StatusID : DINT; (*Status information*)
 	END_VAR
 	VAR
 		Internal : {REDUND_UNREPLICABLE} ViBaseInternalType;

@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AS4 to AS6 Migration Report</title>
+    <style>
+:root {
+    --bg: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.95);
+    --bg-card-solid: #1e293b;
+    --fg: #e2e8f0;
+    --fg-muted: #94a3b8;
+    --border: rgba(148, 163, 184, 0.2);
+    --border-hover: rgba(148, 163, 184, 0.4);
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --error: #ef4444;
+    --error-bg: rgba(239, 68, 68, 0.18);
+    --warning: #f59e0b;
+    --warning-bg: rgba(245, 158, 11, 0.18);
+    --info: #22c55e;
+    --info-bg: rgba(34, 197, 94, 0.18);
+    --success: #10b981;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+}
+
+/* Light mode */
+[data-theme="light"] {
+    --bg: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.98);
+    --bg-card-solid: #ffffff;
+    --fg: #1e293b;
+    --fg-muted: #64748b;
+    --border: rgba(0, 0, 0, 0.1);
+    --border-hover: rgba(0, 0, 0, 0.2);
+    --error: #dc2626;
+    --error-bg: rgba(239, 68, 68, 0.12);
+    --warning: #b45309;
+    --warning-bg: rgba(245, 158, 11, 0.12);
+    --info: #15803d;
+    --info-bg: rgba(34, 197, 94, 0.12);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+        --bg: #f8fafc;
+        --bg-card: rgba(255, 255, 255, 0.98);
+        --bg-card-solid: #ffffff;
+        --fg: #1e293b;
+        --fg-muted: #64748b;
+        --border: rgba(0, 0, 0, 0.1);
+        --border-hover: rgba(0, 0, 0, 0.2);
+        --error: #dc2626;
+        --error-bg: rgba(239, 68, 68, 0.12);
+        --warning: #b45309;
+        --warning-bg: rgba(245, 158, 11, 0.12);
+        --info: #15803d;
+        --info-bg: rgba(34, 197, 94, 0.12);
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media print {
+    :root {
+        --bg: #ffffff;
+        --bg-card: #ffffff;
+        --bg-card-solid: #ffffff;
+        --fg: #000000;
+        --fg-muted: #4b5563;
+    }
+    .sidebar { display: none !important; }
+    .main-content { margin-left: 0 !important; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 1px solid var(--border);
+    padding: 20px 16px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.sidebar-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: var(--fg);
+}
+
+.sidebar-meta {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    line-height: 1.4;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    display: flex;
+    gap: 4px;
+    margin-top: 10px;
+    background: var(--border);
+    border-radius: 6px;
+    padding: 3px;
+}
+
+.theme-btn {
+    flex: 1;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--fg-muted);
+    font-size: 0.7rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.theme-btn:hover {
+    color: var(--fg);
+}
+
+.theme-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.theme-btn.active {
+    background: var(--bg-card-solid);
+    color: var(--fg);
+    box-shadow: var(--shadow);
+}
+
+.theme-btn svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* Email button */
+.email-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--fg-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
+}
+
+.email-btn:hover {
+    background: var(--bg-card-solid);
+    border-color: var(--border-hover);
+    color: var(--fg);
+    text-decoration: none;
+}
+
+.email-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.email-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.sidebar-meta a {
+    color: var(--accent);
+    text-decoration: none;
+}
+.sidebar-meta a:hover {
+    text-decoration: underline;
+}
+
+/* Progress summary */
+.progress-summary {
+    background: var(--bg-card-solid);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 14px;
+    border: 1px solid var(--border);
+}
+
+.progress-bar-container {
+    background: var(--border);
+    border-radius: 999px;
+    height: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success), var(--accent));
+    border-radius: 999px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--fg);
+    text-align: center;
+}
+
+/* Summary badges */
+.summary-badges {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.summary-badge {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+    padding: 10px 6px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.summary-badge.error {
+    background: var(--error-bg);
+    color: var(--error);
+}
+.summary-badge.warning {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+.summary-badge.info {
+    background: var(--info-bg);
+    color: var(--info);
+}
+
+/* Navigation */
+.nav-section {
+    margin-bottom: 8px;
+}
+
+.nav-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--fg-muted);
+    padding: 6px 10px 3px;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    margin-bottom: 3px;
+    background: var(--bg-card-solid);
+    border: 1px solid var(--border);
+}
+
+.nav-item:hover {
+    background: var(--border);
+}
+
+.nav-item.completed {
+    opacity: 0.6;
+}
+
+.nav-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.nav-progress {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--fg);
+    background: var(--border);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-variant-numeric: tabular-nums;
+    min-width: 44px;
+    text-align: center;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 300px;
+    padding: 32px 40px;
+    flex: 1;
+    min-width: 0;
+}
+
+.header {
+    margin-bottom: 32px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: var(--fg);
+}
+
+.header-meta {
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+}
+
+/* Sections */
+.section {
+    background: var(--bg-card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.2s ease;
+}
+
+.section:hover {
+    border-color: var(--border-hover);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    transition: background 0.15s ease;
+}
+
+.section-header:hover {
+    background: var(--border);
+}
+
+.section-header::-webkit-details-marker {
+    display: none;
+}
+
+.section-chevron {
+    transition: transform 0.2s ease;
+    color: var(--fg-muted);
+}
+
+details[open] .section-chevron {
+    transform: rotate(180deg);
+}
+
+.section-title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.section-badges {
+    display: flex;
+    gap: 6px;
+}
+
+.section-badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 28px;
+    text-align: center;
+}
+
+.badge-error { background: var(--error-bg); color: var(--error); }
+.badge-warning { background: var(--warning-bg); color: var(--warning); }
+.badge-info { background: var(--info-bg); color: var(--info); }
+.badge-ok { background: var(--info-bg); color: var(--success); }
+
+.section-progress {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--fg);
+    background: var(--border);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-variant-numeric: tabular-nums;
+    min-width: 55px;
+    text-align: center;
+}
+
+.section-content {
+    padding: 0 20px 20px;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9rem;
+}
+
+/* Log lines */
+.log-line {
+    padding: 6px 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.7;
+}
+
+.log-line br {
+    display: block;
+    content: "";
+    margin-top: 0.3em;
+}
+
+.empty-line {
+    height: 0.75em;
+}
+
+/* Findings (checkable items) */
+.finding {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+}
+
+.finding:hover {
+    background: var(--border);
+}
+
+.finding-error { background: var(--error-bg); border-left: 3px solid var(--error); }
+.finding-warning { background: var(--warning-bg); border-left: 3px solid var(--warning); }
+.finding-info { background: var(--info-bg); border-left: 3px solid var(--info); }
+
+.finding-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.finding-check {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-hover);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    background: var(--bg-card-solid);
+}
+
+.finding-check .icon {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.15s ease;
+    color: var(--success);
+}
+
+.finding-checkbox:checked + .finding-check {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.finding-checkbox:focus-visible + .finding-check {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.finding-checkbox:checked + .finding-check .icon {
+    opacity: 1;
+    transform: scale(1);
+    color: white;
+}
+
+.finding-checkbox:checked ~ .finding-content {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.finding-content {
+    flex: 1;
+    transition: opacity 0.15s ease;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.7;
+}
+
+/* Icons */
+.icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-error { color: var(--error); }
+.icon-warning { color: var(--warning); }
+.icon-info { color: var(--info); }
+.icon-chevron { width: 20px; height: 20px; }
+
+/* Severity labels */
+.sev-error { color: var(--error); font-weight: 700; }
+.sev-warning { color: var(--warning); font-weight: 700; }
+.sev-info { color: var(--info); }
+.sev-label { margin-left: 4px; }
+
+/* Links */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .sidebar {
+        width: 260px;
+        padding: 16px 12px;
+    }
+    .main-content {
+        margin-left: 260px;
+        padding: 24px;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    .nav-item {
+        padding: 10px 12px;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="layout">
+        
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <h2 class="sidebar-title">Migration Checklist</h2>
+        <div class="sidebar-meta">
+            <a href="https://github.com/br-automation-community/as6-migration-tools">as6-migration-tools v2026.02.18.1105</a>
+        </div>
+        <div class="theme-toggle">
+            <button class="theme-btn" data-theme="light" title="Light mode">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                Light
+            </button>
+            <button class="theme-btn active" data-theme="dark" title="Dark mode">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                Dark
+            </button>
+        </div>
+        <button class="email-btn" onclick="sendEmail()" title="Send report summary via email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6L12 13 2 6"/></svg>
+            Send Email
+        </button>
+    </div>
+    
+    <div class="progress-summary">
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="progress-text">0 of 9 completed (0%)</div>
+        <div class="summary-badges">
+            <div class="summary-badge error"><svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span>2 Errors</span></div>
+            <div class="summary-badge warning"><svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 22h20L12 2z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg><span>1 Warnings</span></div>
+            <div class="summary-badge info"><svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg><span>6 Info</span></div>
+        </div>
+    </div>
+    
+    <nav class="nav-section">
+        <div class="nav-label">Sections</div>
+        <a href="#section-opcua" class="nav-item" data-section="opcua">
+                <span class="nav-title">OPC UA Configuration</span>
+                <span class="nav-progress" data-nav-section="opcua">0/2</span>
+            </a>
+<a href="#section-access-security" class="nav-item" data-section="access-security">
+                <span class="nav-title">Access &amp; Security</span>
+                <span class="nav-progress" data-nav-section="access-security">0/1</span>
+            </a>
+<a href="#section-safety" class="nav-item" data-section="safety">
+                <span class="nav-title">Safety System</span>
+                <span class="nav-progress" data-nav-section="safety">0/1</span>
+            </a>
+<a href="#section-mapp-vision" class="nav-item" data-section="mapp-vision">
+                <span class="nav-title">mapp Vision</span>
+                <span class="nav-progress" data-nav-section="mapp-vision">0/2</span>
+            </a>
+<a href="#section-mapp-view" class="nav-item" data-section="mapp-view">
+                <span class="nav-title">mapp View</span>
+                <span class="nav-progress" data-nav-section="mapp-view">0/2</span>
+            </a>
+<a href="#section-summary" class="nav-item" data-section="summary">
+                <span class="nav-title">Migration Summary</span>
+                <span class="nav-progress" data-nav-section="summary">0/1</span>
+            </a>
+    </nav>
+</aside>
+
+        <main class="main-content">
+            
+<div class="header">
+    <h1>AS4 to AS6 Migration Report</h1>
+    <div class="header-meta">
+        <strong>Project:</strong> C:/projects/AllVF &nbsp;|&nbsp;
+        <strong>Generated:</strong> 2026-03-05 09:00:35
+    </div>
+</div>
+
+            <details class="section" id="section-opcua" open data-total="2">
+            <summary class="section-header">
+                <span class="section-chevron"><svg class="icon icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="section-title">OPC UA Configuration</span>
+                <span class="section-badges"><span class="section-badge badge-info">2</span></span>
+                <span class="section-progress" data-section="opcua">0/2</span>
+            </summary>
+            <div class="section-content">
+                <div class="log-line empty-line">&nbsp;</div>
+<label class="finding finding-info" data-id="finding__opcua__4__0">
+            <input type="checkbox" class="finding-checkbox" id="finding__opcua__4__0">
+            <span class="finding-check"><svg class="icon icon-check" viewBox="0 0 20 20" fill="currentColor"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="finding-content">
+<span class="sev-info"><svg class="icon icon-info" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 9v5m0-8v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="sev-label">[INFO]</span></span> OPC UA model 1 is not supported in AS6 and will be automatically converted to model 2. This changes the namespace ID for variables.
+The following hardware files have OPC UA model 1 activated:
+
+- C:\projects\AllVF\Physical\Config1\Hardware.hw
+- C:\projects\AllVF\Physical\Config_EM1613\Hardware.hw</span>
+        </label>
+<div class="log-line empty-line">&nbsp;</div>
+<label class="finding finding-info" data-id="finding__opcua__4__1">
+            <input type="checkbox" class="finding-checkbox" id="finding__opcua__4__1">
+            <span class="finding-check"><svg class="icon icon-check" viewBox="0 0 20 20" fill="currentColor"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="finding-content">
+<span class="sev-info"><svg class="icon icon-info" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 9v5m0-8v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="sev-label">[INFO]</span></span> &quot;OPC-UA System -&gt; Conversions -&gt; Implicit Type Cast&quot; uses AS4 default (on). In AS6, the default is deactivated, which may cause &#x27;Bad_TypeMismatch&#x27; errors during OPC UA client method calls (e.g., Int64 to Int32 conversions).
+The following hardware files use the AS4 default:
+
+- C:\projects\AllVF\Physical\Config1\Hardware.hw
+- C:\projects\AllVF\Physical\Config_EM1613\Hardware.hw</span>
+        </label>
+<div class="log-line empty-line">&nbsp;</div>
+            </div>
+        </details>
+<details class="section" id="section-access-security" open data-total="1">
+            <summary class="section-header">
+                <span class="section-chevron"><svg class="icon icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="section-title">Access &amp; Security</span>
+                <span class="section-badges"><span class="section-badge badge-error">1</span></span>
+                <span class="section-progress" data-section="access-security">0/1</span>
+            </summary>
+            <div class="section-content">
+                <div class="log-line empty-line">&nbsp;</div>
+<label class="finding finding-error" data-id="finding__access-security__9__0">
+            <input type="checkbox" class="finding-checkbox" id="finding__access-security__9__0">
+            <span class="finding-check"><svg class="icon icon-check" viewBox="0 0 20 20" fill="currentColor"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="finding-content">
+<span class="sev-error"><svg class="icon icon-error" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 6v5m0 3v.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sev-label">[MANDATORY]</span></span> [AS6] Access &amp; Security: Password hashing algorithm changed in AS6. (<a href="https://help.br-automation.com/#/en/6/revinfos/version-info/projekt_aus_automation_studio_4_ubernehmen/automation_studio/notwendige_anpassungen_im_automation_studio_6_projekt.html">AS6/Migration</a>)
+ - You must re-enter the password for all users configured in the &#x27;AccessAndSecurity/UserRoleSystem&#x27;.
+ - It is no longer possible to authenticate using the old stored password from the AS 4.12 project.</span>
+        </label>
+<div class="log-line empty-line">&nbsp;</div>
+            </div>
+        </details>
+<details class="section" id="section-safety" open data-total="1">
+            <summary class="section-header">
+                <span class="section-chevron"><svg class="icon icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="section-title">Safety System</span>
+                <span class="section-badges"><span class="section-badge badge-info">1</span></span>
+                <span class="section-progress" data-section="safety">0/1</span>
+            </summary>
+            <div class="section-content">
+                <div class="log-line empty-line">&nbsp;</div>
+<label class="finding finding-info" data-id="finding__safety__10__0">
+            <input type="checkbox" class="finding-checkbox" id="finding__safety__10__0">
+            <span class="finding-check"><svg class="icon icon-check" viewBox="0 0 20 20" fill="currentColor"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="finding-content">
+<span class="sev-info"><svg class="icon icon-info" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 9v5m0-8v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="sev-label">[INFO]</span></span> No safety system detected</span>
+        </label>
+<div class="log-line empty-line">&nbsp;</div>
+            </div>
+        </details>
+<details class="section" id="section-mapp-vision" open data-total="2">
+            <summary class="section-header">
+                <span class="section-chevron"><svg class="icon icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="section-title">mapp Vision</span>
+                <span class="section-badges"><span class="section-badge badge-error">1</span><span class="section-badge badge-info">1</span></span>
+                <span class="section-progress" data-section="mapp-vision">0/2</span>
+            </summary>
+            <div class="section-content">
+                <div class="log-line empty-line">&nbsp;</div>
+<label class="finding finding-info" data-id="finding__mapp-vision__11__0">
+            <input type="checkbox" class="finding-checkbox" id="finding__mapp-vision__11__0">
+            <span class="finding-check"><svg class="icon icon-check" viewBox="0 0 20 20" fill="currentColor"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="finding-content">
+<span class="sev-info"><svg class="icon icon-info" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 9v5m0-8v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="sev-label">[INFO]</span></span> Found usage of mapp Vision (Version: 5.28)</span>
+        </label>
+<div class="log-line empty-line">&nbsp;</div>
+<label class="finding finding-error" data-id="finding__mapp-vision__11__1">
+            <input type="checkbox" class="finding-checkbox" id="finding__mapp-vision__11__1">
+            <span class="finding-check"><svg class="icon icon-check" viewBox="0 0 20 20" fill="currentColor"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="finding-content">
+<span class="sev-error"><svg class="icon icon-error" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 6v5m0 3v.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sev-label">[MANDATORY]</span></span> [AS6] Several security settings will be enforced after the migration:
+
+- After migrating to AS6 make sure that IP forwarding is activated under the Powerlink interface! (<a href="https://help.br-automation.com/#/en/6/revinfos/version-info/new_functions/features_and_changes.html">AR/Features_and_changes</a>)
+
+- There is no more anonymous access to mappVision applications. Make sure to create users and assign them to the appropriate roles (ex. BR_Engineer) after migrating to AS6.
+
+- Open the mappView server configuration file (<a href="https://help.br-automation.com/#/en/6/visualization/mappview/engineering/organization/mappviewconfiguration/mappviewconfiguration.html">Configuration View/mappView/Config.mappviewcfg</a>)
+  Check &quot;Change Advanced Parameter Visibility&quot; button in the editor toolbar
+  Add the value &#x27;VisionHmiDevice&#x27; under File Device Whitelist</span>
+        </label>
+<div class="log-line empty-line">&nbsp;</div>
+            </div>
+        </details>
+<details class="section" id="section-mapp-view" open data-total="2">
+            <summary class="section-header">
+                <span class="section-chevron"><svg class="icon icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="section-title">mapp View</span>
+                <span class="section-badges"><span class="section-badge badge-warning">1</span><span class="section-badge badge-info">1</span></span>
+                <span class="section-progress" data-section="mapp-view">0/2</span>
+            </summary>
+            <div class="section-content">
+                <div class="log-line empty-line">&nbsp;</div>
+<label class="finding finding-info" data-id="finding__mapp-view__12__0">
+            <input type="checkbox" class="finding-checkbox" id="finding__mapp-view__12__0">
+            <span class="finding-check"><svg class="icon icon-check" viewBox="0 0 20 20" fill="currentColor"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="finding-content">
+<span class="sev-info"><svg class="icon icon-info" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 9v5m0-8v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="sev-label">[INFO]</span></span> Found usage of mappView (Version: 5.24)</span>
+        </label>
+<div class="log-line empty-line">&nbsp;</div>
+<label class="finding finding-warning" data-id="finding__mapp-view__12__1">
+            <input type="checkbox" class="finding-checkbox" id="finding__mapp-view__12__1">
+            <span class="finding-check"><svg class="icon icon-check" viewBox="0 0 20 20" fill="currentColor"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="finding-content">
+<span class="sev-warning"><svg class="icon icon-warning" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2L1 18h18L10 2z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M10 8v4m0 2v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="sev-label">[WARNING]</span></span> [AS6] Several security settings will be enforced after the migration. While we do recommend to use the new settings for better security, here are the steps to restore the previous behavior:
+
+- To allow access without a certificate
+  Change the following settings in the OPC Client/Server configuration (<a href="https://help.br-automation.com/#/en/6/communication/opcua/configuration/runtime/opcua_runtimeconfiguration.html">Configuration View/Connectivity/OpcUaCs/UaCsConfig.uacfg</a>):
+  ClientServerConfiguration-&gt;Security-&gt;MessageSecurity-&gt;SecurityPolicies-&gt;None: Enabled
+
+- User login will be enabled by default. To allow anonymous access
+  Change the following settings in mappView configuration (<a href="https://help.br-automation.com/#/en/6/visualization/mappview/engineering/organization/mappviewconfiguration/mappviewconfiguration.html">Configuration View/mappView/Config.mappviewcfg</a>):
+  MappViewConfiguration-&gt;Server Configuration-&gt;Startup User: anonymous token
+
+- Change the following settings in the OPC Client/Server configuration (<a href="https://help.br-automation.com/#/en/6/communication/opcua/configuration/runtime/opcua_runtimeconfiguration.html">Configuration View/Connectivity/OpcUaCs/UaCsConfig.uacfg</a>):
+  Click on the two green blocks at the top where it says &#x27;Change Advanced Parameter Visibility&#x27;
+  ClientServerConfiguration-&gt;Security-&gt;Authentication-&gt;Authentication Methods-&gt;Anonymous: Enabled
+  ClientServerConfiguration-&gt;Security-&gt;Authorization-&gt;AnonymousAccess-&gt;User Role 1: Everyone
+
+- Change the following settings in the User role system (<a href="https://help.br-automation.com/#/en/6/visualization/mappview/engineering/organization/mappviewconfiguration/authentication/authentication.html">Configuration View/AccessAndSecurity/UserRoleSystem/User.user</a>):
+  Assign the role &quot;BR_Engineer&quot; to the user &quot;Anonymous&quot;. Create that user if it doesn&#x27;t already exist, assign no password.
+
+- To allow access to a File device from a running mappView application, it is now required to explicitly whitelist it for reading:
+  Open the mappView server configuration file (<a href="https://help.br-automation.com/#/en/6/visualization/mappview/engineering/organization/mappviewconfiguration/mappviewconfiguration.html">Configuration View/mappView/Config.mappviewcfg</a>)
+  Check &quot;Change Advanced Parameter Visibility&quot; button in the editor toolbar
+  Enter your accessed File device &quot;Name&quot; under &quot;MappViewConfiguration-&gt;Server configuration-&gt;File device whitelist&quot;</span>
+        </label>
+<div class="log-line empty-line">&nbsp;</div>
+            </div>
+        </details>
+<details class="section" id="section-summary" open data-total="1">
+            <summary class="section-header">
+                <span class="section-chevron"><svg class="icon icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="section-title">Migration Summary</span>
+                <span class="section-badges"><span class="section-badge badge-info">1</span></span>
+                <span class="section-progress" data-section="summary">0/1</span>
+            </summary>
+            <div class="section-content">
+                <div class="log-line empty-line">&nbsp;</div>
+<label class="finding finding-info" data-id="finding__summary__18__0">
+            <input type="checkbox" class="finding-checkbox" id="finding__summary__18__0">
+            <span class="finding-check"><svg class="icon icon-check" viewBox="0 0 20 20" fill="currentColor"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="finding-content">
+<span class="sev-info"><svg class="icon icon-info" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 9v5m0-8v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="sev-label">[INFO]</span></span> [AS6] After upgrading the Automation Studio 4 project:
+
+ - The Automation Runtime version, Visual Components version and Technology Package versions must still be set in Runtime versions dialog box.
+ - To ensure correct functionality, it is mandatory to perform a Project / Clean up configuration or Project / Rebuild configuration with AS 6 for all configurations.</span>
+        </label>
+<div class="log-line empty-line">&nbsp;</div>
+<div class="log-line empty-line">&nbsp;</div>
+<div class="log-line">
+Scanning completed successfully in 4.96 seconds.</div>
+<div class="log-line empty-line">&nbsp;</div>
+            </div>
+        </details>
+        </main>
+    </div>
+    <script>
+(function() {
+    const STORAGE_KEY = 'as6-migration-checklist-' + location.pathname;
+    
+    // Load saved state
+    function loadState() {
+        try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+        } catch (e) {
+            return {};
+        }
+    }
+    
+    // Save state
+    function saveState(state) {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) {}
+    }
+    
+    // Update progress displays
+    function updateProgress() {
+        const state = loadState();
+        const checkboxes = document.querySelectorAll('.finding-checkbox');
+        let totalChecked = 0;
+        const sectionCounts = {};
+        
+        checkboxes.forEach(cb => {
+            // ID format: finding__sectionId__sectionIndex__findingCounter
+            const parts = cb.id.split('__');
+            const sectionId = parts[1]; // Extract section ID
+            if (!sectionCounts[sectionId]) {
+                sectionCounts[sectionId] = { checked: 0, total: 0 };
+            }
+            sectionCounts[sectionId].total++;
+            if (cb.checked) {
+                sectionCounts[sectionId].checked++;
+                totalChecked++;
+            }
+        });
+        
+        // Update section progress
+        Object.keys(sectionCounts).forEach(sectionId => {
+            const { checked, total } = sectionCounts[sectionId];
+            // Only update elements with class .section-progress or .nav-progress, not the entire nav-item
+            const els = document.querySelectorAll(`.section-progress[data-section="${sectionId}"], .nav-progress[data-nav-section="${sectionId}"]`);
+            els.forEach(el => el.textContent = `${checked}/${total}`);
+            
+            // Mark nav item as completed
+            const navItem = document.querySelector(`.nav-item[data-section="${sectionId}"]`);
+            if (navItem) {
+                navItem.classList.toggle('completed', checked === total && total > 0);
+            }
+        });
+        
+        // Update total progress
+        const total = checkboxes.length;
+        const percent = total > 0 ? Math.round((totalChecked / total) * 100) : 0;
+        const progressBar = document.querySelector('.progress-bar');
+        const progressText = document.querySelector('.progress-text');
+        if (progressBar) progressBar.style.width = percent + '%';
+        if (progressText) progressText.textContent = `${totalChecked} of ${total} completed (${percent}%)`;
+    }
+    
+    // Theme handling
+    const THEME_KEY = 'as6-migration-theme';
+    
+    function getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        updateThemeButtons(theme);
+    }
+    
+    function setTheme(theme) {
+        localStorage.setItem(THEME_KEY, theme);
+        applyTheme(theme);
+    }
+    
+    function updateThemeButtons(theme) {
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.theme === theme);
+        });
+    }
+    
+    // Send email with report summary
+    function sendEmail() {
+        const projectPath = document.querySelector('.header-meta')?.textContent || '';
+        const projectMatch = projectPath.match(/Project:\s*([^|]+)/);
+        const projectName = projectMatch ? projectMatch[1].trim() : 'AS4 Project';
+        
+        // Get counts from summary badges
+        const errorBadge = document.querySelector('.summary-badge.error');
+        const warningBadge = document.querySelector('.summary-badge.warning');
+        const infoBadge = document.querySelector('.summary-badge.info');
+        
+        const errors = errorBadge ? errorBadge.textContent.match(/\d+/)?.[0] || '0' : '0';
+        const warnings = warningBadge ? warningBadge.textContent.match(/\d+/)?.[0] || '0' : '0';
+        const infos = infoBadge ? infoBadge.textContent.match(/\d+/)?.[0] || '0' : '0';
+        
+        const subject = encodeURIComponent(`AS6 Migration Analysis Report - ${projectName}`);
+        const body = encodeURIComponent(
+            `AS6 Migration Analysis Summary\n` +
+            `\n` +
+            `Project: ${projectName}\n` +
+            `\n` +
+            `Findings:\n` +
+            `- Errors: ${errors}\n` +
+            `- Warnings: ${warnings}\n` +
+            `- Information: ${infos}\n` +
+            `\n` +
+            `Please attach the full HTML report to this email.\n` +
+            `The report file is located at: ${window.location.href}\n`
+        );
+        
+        window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        const state = loadState();
+        
+        // Restore checkbox states
+        document.querySelectorAll('.finding-checkbox').forEach(cb => {
+            if (state[cb.id]) {
+                cb.checked = true;
+            }
+            
+            // Listen for changes
+            cb.addEventListener('change', function() {
+                const newState = loadState();
+                if (this.checked) {
+                    newState[this.id] = true;
+                } else {
+                    delete newState[this.id];
+                }
+                saveState(newState);
+                updateProgress();
+            });
+        });
+        
+        // Restore section collapse states and listen for changes
+        const SECTIONS_KEY = 'as6-migration-sections-' + location.pathname;
+        let sectionState = {};
+        try {
+            sectionState = JSON.parse(localStorage.getItem(SECTIONS_KEY)) || {};
+        } catch (e) {}
+        
+        document.querySelectorAll('details.section').forEach(details => {
+            const sectionId = details.id;
+            // Restore saved state (default is open)
+            if (sectionState[sectionId] === false) {
+                details.removeAttribute('open');
+            }
+            
+            // Listen for toggle events
+            details.addEventListener('toggle', function() {
+                let currentState = {};
+                try {
+                    currentState = JSON.parse(localStorage.getItem(SECTIONS_KEY)) || {};
+                } catch (e) {}
+                currentState[this.id] = this.open;
+                try {
+                    localStorage.setItem(SECTIONS_KEY, JSON.stringify(currentState));
+                } catch (e) {}
+            });
+        });
+        
+        // Initialize theme - use saved preference or fall back to system preference
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        const activeTheme = savedTheme || getSystemTheme();
+        applyTheme(activeTheme);
+        
+        // Listen for system theme changes (only affects users without saved preference)
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+            if (!localStorage.getItem(THEME_KEY)) {
+                applyTheme(getSystemTheme());
+            }
+        });
+        
+        // Theme toggle buttons
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.addEventListener('click', () => setTheme(btn.dataset.theme));
+        });
+        
+        updateProgress();
+    });
+    
+    // Expose sendEmail globally for onclick handler
+    window.sendEmail = sendEmail;
+})();
+</script>
+</body>
+</html>

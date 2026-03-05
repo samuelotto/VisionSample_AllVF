@@ -12,6 +12,8 @@ extern "C"
 #endif
 
 #include <bur/plctypes.h>
+  
+#include <runtime.h>
 
 #ifndef _BUR_PUBLIC
 #define _BUR_PUBLIC
@@ -330,7 +332,7 @@ typedef struct PLSYSCONF_RS_typ
 	UDINT hwVariant;    /* Hardware variant: 0=any */
 	INT insize;         /* Size for input buffer (0xffff for automatic)*/
 	INT outsize;        /* Size for output buffer (0xffff for automatic)*/
-	INT RespTimeout;	/* response timeout in µs <= 0 -> default = 25µs */
+	INT RespTimeout;	/* response timeout in microseconds <= 0 -> default = 25 microseconds */
 	USINT MuxNetworkSlot; /* ignored for normal stations, for multiplexed stations 1 to MuxPrescaler */
 	USINT reserve2;     /* reserved set to 0 */
 }PLSYSCONF_RS_typ;
