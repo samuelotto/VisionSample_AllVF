@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=3.0.0.0?>
-<Library xmlns="http://br-automation.co.at/AS/Library" Description="This library contains FBKs for exchanging and formatting data (message based) via HTTP (TCP).">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Library SubType="binary" Description="This library contains FBKs for exchanging and formatting data (message based) via HTTP (TCP)." xmlns="http://br-automation.co.at/AS/Library">
   <Files>
     <File>AsHttp.fun</File>
     <File>AsHttp.typ</File>

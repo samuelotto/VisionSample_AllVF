@@ -24,6 +24,11 @@ typedef enum ViBaseImageTypeEnum
 	viBASE_IMAGE_TYPE_JPG = 1
 } ViBaseImageTypeEnum;
 
+typedef enum ViBaseTransferAppCommandEnum
+{	viBASE_TRANSFER_APP_EXPORT = 0,
+	viBASE_TRANSFER_APP_IMPORT = 1
+} ViBaseTransferAppCommandEnum;
+
 typedef struct ViBaseFubProcessingType
 {	signed long Mediator[2];
 } ViBaseFubProcessingType;
@@ -266,6 +271,45 @@ typedef struct ViBaseImport
 	plcbit Error;
 } ViBaseImport_typ;
 
+typedef struct ViBaseTransferApplication
+{
+	/* VAR_INPUT (analog) */
+	struct ViComponentType* MpLink;
+	plcstring (*DeviceName);
+	plcstring (*FileName);
+	plcstring (*ApplicationName);
+	enum ViBaseTransferAppCommandEnum TransferCommand;
+	/* VAR_OUTPUT (analog) */
+	signed long StatusID;
+	/* VAR (analog) */
+	struct ViBaseInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+} ViBaseTransferApplication_typ;
+
+typedef struct ViBaseListCalibrationDatasets
+{
+	/* VAR_INPUT (analog) */
+	struct ViComponentType* MpLink;
+	unsigned long List;
+	unsigned long ListLen;
+	/* VAR_OUTPUT (analog) */
+	signed long StatusID;
+	unsigned char NrDatasets;
+	/* VAR (analog) */
+	struct ViBaseInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+} ViBaseListCalibrationDatasets_typ;
+
 typedef plcstring ViBaseFormatItemCollectionType[131];
 
 typedef plcstring ViBaseFormatPlainTextType[51];
@@ -283,10 +327,13 @@ _BUR_PUBLIC void ViBaseGetImage(struct ViBaseGetImage* inst);
 _BUR_PUBLIC void ViBaseAxisBasedAcquisition(struct ViBaseAxisBasedAcquisition* inst);
 _BUR_PUBLIC void ViBaseExport(struct ViBaseExport* inst);
 _BUR_PUBLIC void ViBaseImport(struct ViBaseImport* inst);
+_BUR_PUBLIC void ViBaseTransferApplication(struct ViBaseTransferApplication* inst);
+_BUR_PUBLIC void ViBaseListCalibrationDatasets(struct ViBaseListCalibrationDatasets* inst);
 
 
 /* Constants */
 #ifdef _REPLACE_CONST
+ #define viBASE_ERR_NO_MEMORY (-1045168118)
  #define viBASE_ERR_FILE_READ (-1045168108)
  #define viBASE_ERR_FILE_WRITE (-1045168107)
  #define viBASE_ERR_INVALID_FILE_DEVICE (-1045168106)
@@ -344,7 +391,11 @@ _BUR_PUBLIC void ViBaseImport(struct ViBaseImport* inst);
  #define viBASE_ERR_CAM_NO_VA_LOADED (-1045167871)
  #define viBASE_ERR_IMPORT_INCOMP (-1045167862)
  #define viBASE_ERR_SNAP_ACCESS (-1045167861)
+ #define viBASE_ERR_RECIPE_INCOMP (-1045167860)
+ #define viBASE_ERR_IMP_APP_EXISTS (-1045167859)
+ #define viBASE_ERR_DL_ACCESS (-1045167858)
 #else
+ _GLOBAL_CONST signed long viBASE_ERR_NO_MEMORY;
  _GLOBAL_CONST signed long viBASE_ERR_FILE_READ;
  _GLOBAL_CONST signed long viBASE_ERR_FILE_WRITE;
  _GLOBAL_CONST signed long viBASE_ERR_INVALID_FILE_DEVICE;
@@ -402,6 +453,9 @@ _BUR_PUBLIC void ViBaseImport(struct ViBaseImport* inst);
  _GLOBAL_CONST signed long viBASE_ERR_CAM_NO_VA_LOADED;
  _GLOBAL_CONST signed long viBASE_ERR_IMPORT_INCOMP;
  _GLOBAL_CONST signed long viBASE_ERR_SNAP_ACCESS;
+ _GLOBAL_CONST signed long viBASE_ERR_RECIPE_INCOMP;
+ _GLOBAL_CONST signed long viBASE_ERR_IMP_APP_EXISTS;
+ _GLOBAL_CONST signed long viBASE_ERR_DL_ACCESS;
 #endif
 
 

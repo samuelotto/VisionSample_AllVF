@@ -88,7 +88,7 @@ PROGRAM _CYCLIC
 		// Save svg or jpg file, also bmp is possible
 		20:
 			FileDelete_0.enable := TRUE;
-			FileDelete_0.pDevice := ADR('CF');
+			FileDelete_0.pDevice := ADR('USER');
 			FileDelete_0.pName := ADR('Image.jpg'); // Choose: Save the jpg-file
 			//FileDelete_0.pName := ADR('Image.svg'); // Choose: Save the svg-file
 			FileDelete_0();

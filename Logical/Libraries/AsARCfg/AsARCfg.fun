@@ -1342,7 +1342,7 @@ END_FUNCTION_BLOCK
 	VAR_INPUT
 		enable			: BOOL;			(*enables execution*)
 		pDevice			: UDINT;		(*Devicename given as a pointer*)
-		mode			: UINT;			(*SNMP mode to be set: cfgSNMP_MODE_DISABLED, cfgSNMP_MODE_READ_ONLY, cfgSNMP_MODE_READ_WRITE*)
+		mode			: UINT;			(*SNMP mode to be set: cfgSNMP_MODE_DISABLED, cfgSNMP_MODE_READ_ONLY, cfgSNMP_MODE_READ_WRITE, cfgSNMP_MODE_READ_ONLY_SECURE, cfgSNMP_MODE_READ_WRITE_SECURE *)
 		option			: UDINT;		(*persistency properties: cfgOPTION_VOLATILE, cfgOPTION_NON_VOLATILE*)
 	END_VAR
 
@@ -1365,7 +1365,28 @@ END_FUNCTION_BLOCK
 
 	VAR_OUTPUT
 		status			: UINT;			(*execution status: ERR_OK, ERR_FUB_ENABLE_FALSE, ERR_FUB_BUSY, 0xXXXX = see help*)
-		mode			: UINT;			(*currently set SNMP mode: cfgSNMP_MODE_DISABLED, cfgSNMP_MODE_READ_ONLY, cfgSNMP_MODE_READ_WRITE*)
+		mode			: UINT;			(*currently set SNMP mode: cfgSNMP_MODE_DISABLED, cfgSNMP_MODE_READ_ONLY, cfgSNMP_MODE_READ_WRITE, cfgSNMP_MODE_READ_ONLY_SECURE, cfgSNMP_MODE_READ_WRITE_SECURE*)
+	END_VAR
+
+	VAR
+        i_state			: UINT;			(*internal variable*)
+		i_result		: UINT;			(*internal variable*)
+        i_tmp			: UDINT;		(*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK
+
+{REDUND_CONTEXT} {REDUND_UNREPLICABLE} FUNCTION_BLOCK CfgSetSnmpCredentials (*Sets credentials for SNMP service*)
+	VAR_INPUT
+		enable			: BOOL;			(*enables execution*)
+		pDevice			: UDINT;		(*device name given as a pointer*)
+		pUserName		: UDINT;		(*user name given as pointer*)
+		pAuthPassphrase : UDINT;		(*authentication passphrase given as pointer*)
+		pPrivPassphrase : UDINT;		(*private passphrase given as pointer*)
+		option			: UDINT;		(*persistency properties: cfgOPTION_VOLATILE, cfgOPTION_NON_VOLATILE*)
+	END_VAR
+
+	VAR_OUTPUT
+		status			: UINT;			(*execution status: ERR_OK, ERR_FUB_ENABLE_FALSE, ERR_FUB_BUSY, 0xXXXX = see help*)
 	END_VAR
 
 	VAR

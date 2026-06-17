@@ -45,7 +45,7 @@ PROGRAM _CYCLIC
 		// Save image
 		20: 
 			FileDelete_0.enable := TRUE;
-			FileDelete_0.pDevice := ADR('CF');
+			FileDelete_0.pDevice := ADR('USER');
 			FileDelete_0.pName := ADR('Image.bmp');
 			FileDelete_0();
 			IF FileDelete_0.status = 0 OR FileDelete_0.status = fiERR_FILE_NOT_FOUND THEN

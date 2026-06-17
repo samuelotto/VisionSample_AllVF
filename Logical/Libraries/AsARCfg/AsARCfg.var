@@ -89,6 +89,8 @@ VAR CONSTANT
 	cfgSNMP_MODE_DISABLED			: UINT		:= 0;		(*SNMP disabled*)
 	cfgSNMP_MODE_READ_ONLY			: UINT		:= 1;		(*SNMP read only*)
 	cfgSNMP_MODE_READ_WRITE			: UINT		:= 2;		(*SNMP read/write*)
+	cfgSNMP_MODE_READ_ONLY_SECURE	: UINT		:= 3;		(*secure SNMP read only*)
+	cfgSNMP_MODE_READ_WRITE_SECURE	: UINT		:= 4;		(*secure SNMP read/write*)
 
 	cfgTIMEOUT_WAITFOREVER			: UDINT		:= 16#FFFFFFFF;		(*ARNB DHCP server response timeout wait forever*)
 END_VAR

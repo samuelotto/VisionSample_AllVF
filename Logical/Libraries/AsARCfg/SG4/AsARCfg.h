@@ -1168,6 +1168,24 @@ typedef struct CfgGetSnmpMode
 	plcbit enable;
 } CfgGetSnmpMode_typ;
 
+typedef struct CfgSetSnmpCredentials
+{
+	/* VAR_INPUT (analog) */
+	unsigned long pDevice;
+	unsigned long pUserName;
+	unsigned long pAuthPassphrase;
+	unsigned long pPrivPassphrase;
+	unsigned long option;
+	/* VAR_OUTPUT (analog) */
+	unsigned short status;
+	/* VAR (analog) */
+	unsigned short i_state;
+	unsigned short i_result;
+	unsigned long i_tmp;
+	/* VAR_INPUT (digital) */
+	plcbit enable;
+} CfgSetSnmpCredentials_typ;
+
 typedef struct CfgSetNetworkInstallMode
 {
 	/* VAR_INPUT (analog) */
@@ -1278,6 +1296,7 @@ _BUR_PUBLIC void CfgRouteAdd(struct CfgRouteAdd* inst);
 _BUR_PUBLIC void CfgRouteDelete(struct CfgRouteDelete* inst);
 _BUR_PUBLIC void CfgSetSnmpMode(struct CfgSetSnmpMode* inst);
 _BUR_PUBLIC void CfgGetSnmpMode(struct CfgGetSnmpMode* inst);
+_BUR_PUBLIC void CfgSetSnmpCredentials(struct CfgSetSnmpCredentials* inst);
 _BUR_PUBLIC void CfgSetNetworkInstallMode(struct CfgSetNetworkInstallMode* inst);
 _BUR_PUBLIC void CfgGetNetworkInstallMode(struct CfgGetNetworkInstallMode* inst);
 _BUR_PUBLIC unsigned short CfgClearNV(void);
@@ -1286,6 +1305,8 @@ _BUR_PUBLIC unsigned short CfgClearNV(void);
 /* Constants */
 #ifdef _REPLACE_CONST
  #define cfgTIMEOUT_WAITFOREVER 4294967295U
+ #define cfgSNMP_MODE_READ_WRITE_SECURE 4U
+ #define cfgSNMP_MODE_READ_ONLY_SECURE 3U
  #define cfgSNMP_MODE_READ_WRITE 2U
  #define cfgSNMP_MODE_READ_ONLY 1U
  #define cfgSNMP_MODE_DISABLED 0U
@@ -1362,6 +1383,8 @@ _BUR_PUBLIC unsigned short CfgClearNV(void);
  #define cfgERR_DEVICE_NOT_EXIST 29000U
 #else
  _GLOBAL_CONST unsigned long cfgTIMEOUT_WAITFOREVER;
+ _GLOBAL_CONST unsigned short cfgSNMP_MODE_READ_WRITE_SECURE;
+ _GLOBAL_CONST unsigned short cfgSNMP_MODE_READ_ONLY_SECURE;
  _GLOBAL_CONST unsigned short cfgSNMP_MODE_READ_WRITE;
  _GLOBAL_CONST unsigned short cfgSNMP_MODE_READ_ONLY;
  _GLOBAL_CONST unsigned short cfgSNMP_MODE_DISABLED;

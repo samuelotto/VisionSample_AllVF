@@ -72,6 +72,12 @@ TYPE
 	ViBaseFormatPlainTextType :STRING[50]; (*This type is intended for vision application list entry in plain text.
 													An array of this can be used in mapp View for StringArra1D bindings e.g. in a Table*)
 
+	ViBaseTransferAppCommandEnum :
+		( (*	Enumeration of ViBaseTransferAppCommandEnum commands *)
+		viBASE_TRANSFER_APP_EXPORT := 0, (*Export recipe data from plc to file.*)
+		viBASE_TRANSFER_APP_IMPORT := 1 (*Import recipe data from file to plc.*)
+		);
+
 
 END_TYPE
 

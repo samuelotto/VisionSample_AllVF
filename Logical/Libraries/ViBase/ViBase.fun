@@ -200,3 +200,44 @@ FUNCTION_BLOCK ViBaseImport (*Function block ViBaseImport can be used to import 
 		Internal : {REDUND_UNREPLICABLE} ViBaseInternalType;
 	END_VAR
 END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK ViBaseTransferApplication (*Function block ViBaseTransferApplication can be used to export/import recipe data to/from the file system*)
+	VAR_INPUT
+		MpLink : REFERENCE TO ViComponentType; (*Pointer to any vision component*)
+		Execute : BOOL; (*Execution of the function block begins on a rising edge of this input.*)
+		DeviceName : REFERENCE TO STRING[50]; (*Pointer to the device name. Points to the name of an existing file device (e.g. "HD0") that was created in AS or with function block DevLink.*)
+		FileName : REFERENCE TO STRING[50]; (*Pointer to the name of the file on the specified device that recipe data is exported/imported to/from - depending on TransferCommand.*)
+		ApplicationName : REFERENCE TO STRING[50]; (*Pointer to the name of the vision application.*)
+		TransferCommand : ViBaseTransferAppCommandEnum; (*specifies the action that is performed on the recipe data.*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*Execution successful. Function block is finished.*)
+		Busy : BOOL; (*The function block is active and must continue to be called.*)
+		Error : BOOL; (*Error during execution.*)
+		StatusID : DINT; (*Status information*)
+	END_VAR
+	VAR
+		Internal : {REDUND_UNREPLICABLE} ViBaseInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK ViBaseListCalibrationDatasets (*This function block can be used to read the available calibration data sets for the camera*)
+	VAR_INPUT
+		MpLink : REFERENCE TO ViComponentType; (*Pointer to the vision component.*)
+		Execute : BOOL; (*Execution of the function block begins on a rising edge of this input.*)
+		List : UDINT; (*Pointer to an array variable of type STRING[255], into which the names of the calibration datasets (e.g. 'calApp.cal') are copied.
+													The names are composed of the CalibrationSet name defined in the mapp Vision configuration of the Automation Studio project (e.g. 'calApp') and the '.cal' file extension.*)
+		ListLen : UDINT; (*Memory size (in bytes) of the array variable referenced by the List input.*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*Execution successful. Function block is finished.*)
+		Busy : BOOL; (*The function block is active and must continue to be called.*)
+		Error : BOOL; (*Error during execution.*)
+		StatusID : DINT; (*Status information*)
+        NrDatasets : USINT; (*Number of calibration data set names configured for the vision component.*)
+	END_VAR
+	VAR
+		Internal : {REDUND_UNREPLICABLE} ViBaseInternalType;
+	END_VAR
+END_FUNCTION_BLOCK
+
