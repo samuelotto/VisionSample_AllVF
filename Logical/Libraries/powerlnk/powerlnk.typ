@@ -68,7 +68,7 @@ TYPE
 		hwVariant	: UDINT ;					(*hardware variant ID *)
 		insize	: INT ;							(*input buffer size of the station*)
 		outsize	: INT ;							(*output buffer size of the station*)
-		RespTimeout	: INT ;						(*response timeout in µs*)
+		RespTimeout	: INT ;						(*response timeout in microseconds*)
 		MuxNetworkSlot	: USINT ;				(*ignored for normal stations, for multiplexed stations 1 to MuxPrescaler*)
 		reserve2	: USINT ;					(*reserved for future updates*)
 	END_STRUCT;

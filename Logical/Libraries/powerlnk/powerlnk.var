@@ -65,7 +65,7 @@ VAR CONSTANT
 	plACTION_GET_STATIONFLAG        : UDINT	:= 12;			(*checks flag for a POWERLINK station*)
 	plACTION_GET_STATION_HWVARIANT  : UDINT	:= 13;			(*reads the POWERLINK station hardware variant*)
 	plACTION_GET_STATION_SHIFT      : UDINT	:= 14;			(*get cyclic cycle shift of multiplexed station to UDINT variable*)
-	plACTION_GET_IF_CYCLE_TIME      : UDINT	:= 15;			(*reads the set POWERLINK cycle time in µs*)	
+	plACTION_GET_IF_CYCLE_TIME      : UDINT	:= 15;			(*reads the set POWERLINK cycle time in microseconds*)	
 	plACTION_GET_IF_PRESCALE        : UDINT	:= 16;			(*reads the set POWERLINK prescaler*)
 	plACTION_GET_IF_MUXPRESCALE     : UDINT	:= 17;			(*reads the multiplexed prescaler*)
 	plACTION_GET_IF_RSQUEUELAPCNT   : UDINT	:= 18;			(*get rs queue lap count to UDINT variable*)

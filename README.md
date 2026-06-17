@@ -45,10 +45,10 @@ Vision Function
 
 # Requirements
 Should also work with newer and some older versions
-* Automation Studio 4.12
-* Automation Runtime M4.93
-* mappVision 5.27 (at least 5.26)
-* mappView 5.24
+* Automation Studio 6.5.3
+* Automation Runtime 6.7.5
+* mappVision 6.7.0
+* mappView 6.7.0
 
 # Revision History
 ## V1.00.0
@@ -56,6 +56,9 @@ First version
 
 ## V1.01.0
 Added task Vi_SaveBmp
+
+## V2.00.0
+Converted to AS6.5.3
 
 # Detailed information about the project
 ## General configuration

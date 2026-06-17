@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<Library Version="5.30.1" SubType="binary" Description="mappVision module: ViBase" xmlns="http://br-automation.co.at/AS/Library">
+<Library Version="6.7.0" SubType="binary" Description="mappVision module: ViBase" xmlns="http://br-automation.co.at/AS/Library">
   <Files>
     <File>ViBase.fun</File>
     <File>ViBase.var</File>
     <File>ViBase.typ</File>
   </Files>
   <Dependencies>
-    <Dependency ObjectName="FileIO" />
     <Dependency ObjectName="AsZip" />
     <Dependency ObjectName="AsArCfg" />
     <Dependency ObjectName="Powerlnk" />
@@ -17,5 +16,7 @@
     <Dependency ObjectName="astime" />
     <Dependency ObjectName="sys_lib" />
     <Dependency ObjectName="DataObj" />
+    <Dependency ObjectName="FileIO" />
+    <Dependency ObjectName="ArSsl" />
   </Dependencies>
 </Library>

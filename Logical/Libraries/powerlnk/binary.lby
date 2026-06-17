@@ -6,4 +6,7 @@
     <File>powerlnk.typ</File>
     <File>powerlnk.var</File>
   </Files>
+  <Dependencies>
+    <Dependency ObjectName="runtime" />
+  </Dependencies>
 </Library>

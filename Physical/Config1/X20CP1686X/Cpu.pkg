@@ -20,11 +20,10 @@
     <Object Type="Package">mappCockpit</Object>
   </Objects>
   <Configuration ModuleId="X20CP1686X">
-    <AutomationRuntime Version="S4.93" />
-    <Build GccVersion="4.1.2" />
+    <AutomationRuntime Version="6.7.5" />
+    <Build GccVersion="11.3.0" />
     <DefaultTargetMemory Tasks="UserROM" />
-    <Safety SafetyRelease="0.0" />
-    <Transfer SavedOfflineInstallationFolder="" SavedPipDestinationFolder="" SavedRuntimeUtilityCenterPackagePath="" />
-    <Vc FirmwareVersion="" />
+    <Transfer WaitForReconnectAfterReboot="True" />
+    <OnlineConfiguration Name="NeueTCPIPVerbindung" DeviceType="TCPIP" DeviceParameters="/IF=tcpip" ConnectionParameters="/COMT=2500 /AM=* /SDT=5 /IP=192.168.1.100 /PT=11169" Description="" />
   </Configuration>
 </Cpu>

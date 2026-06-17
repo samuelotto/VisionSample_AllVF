@@ -7,6 +7,7 @@
  * Constants of library ViBase
  ********************************************************************)
 VAR CONSTANT
+	viBASE_ERR_NO_MEMORY             : DINT :=  -1045168118;	(* 0xc1b4000a Out of memory. [Error: 10] *)
 	viBASE_ERR_FILE_READ             : DINT :=  -1045168108;	(* 0xc1b40014 Failure reading file {ErrorCode}. [Error: 20] *)
 	viBASE_ERR_FILE_WRITE            : DINT :=  -1045168107;	(* 0xc1b40015 Failure writing file {ErrorCode}. [Error: 21] *)
 	viBASE_ERR_INVALID_FILE_DEVICE   : DINT :=  -1045168106;	(* 0xc1b40016 Failure accessing file device {ErrorCode}. [Error: 22] *)
@@ -58,9 +59,14 @@ VAR CONSTANT
 	viBASE_ERR_NEG_DFLT_POS_COMPENS  : DINT :=  -1045167930;	(* 0xc1b400c6 The value for DefaultPositionCompensation is negative. [Error: 198] *)
 	viBASE_ERR_FRCD_ACQ_W_HMI_ACTIVE : DINT :=  -1045167929;	(* 0xc1b400c7 The forced image acquisition is not possible because the mapp Vision HMI is connected to the camera. [Error: 199] *)
 	viBASE_ERR_ACQ_W_HMI_ACTIVE      : DINT :=  -1045167928;	(* 0xc1b400c8 The axis-based image acquisition at position '{AcquisitionPosition}' with calculated timestamp '{NetTime}' is not possible because the mapp Vision HMI is connected to the camera. [Error: 200] *)
+	viBASE_ERR_ACQ_NOT_ACCEPTED      : DINT :=  -1045167926;	(* 0xc1b400ca The axis-based image acquisition at position '{AcquisitionPosition}' with calculated timestamp '{NetTime}' is not possible because the set trigger was not accepted by the camera. [Error: 202] *)
+	viBASE_ERR_FRCD_NOT_ACCEPTED     : DINT :=  -1045167925;	(* 0xc1b400cb The forced image acquisition is not possible because the set trigger was not accepted by the camera. [Error: 203] *)
 	viBASE_ERR_CMD_INV_ACCESS_BASIS  : DINT :=  -1045167872;	(* 0xc1b40100 Command '{CommandName}' cannot be executed because the FB ViAccessBasis is active on the camera. [Error: 256] *)
 	viBASE_ERR_CAM_NO_VA_LOADED      : DINT :=  -1045167871;	(* 0xc1b40101 Camera has currently no loaded Vision Application. [Error: 257] *)
 	viBASE_ERR_IMPORT_INCOMP         : DINT :=  -1045167862;	(* 0xc1b4010a Snapshot file is incompatible [Error: 266] *)
 	viBASE_ERR_SNAP_ACCESS           : DINT :=  -1045167861;	(* 0xc1b4010b Accessing snapshot failed with error '{ResultCode}' ('{ResultCodeExt}') [Error: 267] *)
+	viBASE_ERR_RECIPE_INCOMP         : DINT :=  -1045167860;	(* 0xc1b4010c The provided MpLink '{MpLink}' and vision application '{ApplicationName}' are incompatible. [Error: 268] *)
+	viBASE_ERR_IMP_APP_EXISTS        : DINT :=  -1045167859;	(* 0xc1b4010d A vision application with name '{ApplicationName}' already exists within the configuration system and will not be overwritten. [Error: 269] *)
+	viBASE_ERR_DL_ACCESS             : DINT :=  -1045167858;	(* 0xc1b4010e An error occured while accessing '{DlAccessPath}' [Error: 270] *)
 END_VAR
 
