@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.12.6.106 FileVersion="4.9"?>
+<?AutomationStudio Version=4.12.9.18 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="VSLB11Q00.54DP-000" Type="VSLB11Q00.54DP-000" Version="1.2.0.681">
     <Connection Connector="PLK1" TargetModule="VSLL11Q20.67AP-000" TargetConnector="PLK2" NodeNumber="17">
@@ -28,7 +28,7 @@
     <Parameter ID="Supervision" Value="off" />
     <Parameter ID="VisionConfig" Value="VCMyCam" />
   </Module>
-  <Module Name="X20CP1686X" Type="X20CP1686X" Version="1.8.2.0">
+  <Module Name="X20CP1686X" Type="X20CP1686X" Version="1.10.0.0">
     <Connector Name="IF2">
       <Parameter ID="ActivateDevice" Value="1" />
       <Parameter ID="Mode" Value="Manual" />

@@ -20,11 +20,11 @@
     <Object Type="Package">mappCockpit</Object>
   </Objects>
   <Configuration ModuleId="X20CP1686X">
-    <AutomationRuntime Version="O4.93" />
+    <AutomationRuntime Version="S4.93" />
     <Build GccVersion="4.1.2" />
     <DefaultTargetMemory Tasks="UserROM" />
     <Safety SafetyRelease="0.0" />
     <Transfer SavedOfflineInstallationFolder="" SavedPipDestinationFolder="" SavedRuntimeUtilityCenterPackagePath="" />
-    <Vc FirmwareVersion="V4.73.2" />
+    <Vc FirmwareVersion="" />
   </Configuration>
 </Cpu>
